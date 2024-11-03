@@ -70,7 +70,12 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
-
+  avatar: {
+    "&:hover": {
+      backgroundColor: "#ffff", // Change to a different color on hover
+      boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Shadow only at the bottom
+    },
+  },
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],

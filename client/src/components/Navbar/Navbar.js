@@ -1,18 +1,37 @@
 import React, { useState, useEffect } from "react";
 import memories from "../../images/memories.png";
 import useStyles from "./styles.js";
-
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { jwtDecode } from "jwt-decode";
+import { useHistory, Link, useLocation } from "react-router-dom";
 import { AppBar, Avatar, Button, Toolbar, Typography } from "@material-ui/core";
 const Navbar = () => {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const location = useLocation();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-  // console.log(user.result.email);
+
+  // console.log(jwtDecode(user.result));
+
+  const logout = () => {
+    dispatch({ type: "LOGOUT" });
+    history.push("/");
+    setUser(null);
+  };
+  let data = null;
+  if (user !== null) {
+    data = jwtDecode(user.result);
+  } else {
+    data = user;
+  }
+
+  //console.log(data.name);
   useEffect(() => {
     const profile = JSON.parse(localStorage.getItem("profile"));
     setUser(profile);
-  }, []);
+  }, [location]);
+
   return (
     <AppBar position="static" color="inherit" className={classes.appBar}>
       <div className={classes.brandContainer}>
@@ -33,24 +52,24 @@ const Navbar = () => {
       </div>
 
       <Toolbar className={classes.toolbar}>
-        {user ? (
+        {user !== null ? (
           <div className={classes.profile}>
             <Avatar
               className={classes.avatar}
-              alt={user.result.name}
-              src={user.result.imageUrl}
+              alt={data.name}
+              src={data.picture}
             >
-              {/*  {user.result.given_name.chartAt(0)} */}
+              {/*   {user.result.given_name.chartAt(0)} */}
             </Avatar>
             <Typography className={classes.userName} variant="h6">
-              {user.result.give_name}
+              {data.name}
             </Typography>
             <Button
               variant="contained"
               color="secondary"
               size="large"
               className={classes.logout}
-              onClick={() => {}}
+              onClick={logout}
             >
               Logout
             </Button>
@@ -61,7 +80,6 @@ const Navbar = () => {
             to="/auth"
             variant="contained"
             color="secondary"
-            onClick={() => {}}
             style={{ padding: "10px 20px", fontWeight: "bold" }}
           >
             Sign in

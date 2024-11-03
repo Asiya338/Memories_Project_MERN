@@ -22,7 +22,7 @@ const Input = ({
     <Grid xs={12} item sm={half ? 6 : 12}>
       <TextField
         name={name}
-        onChange={handleChange()}
+        onChange={handleChange}
         variant="outlined"
         required
         fullWidth
