@@ -71,8 +71,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   avatar: {
+    backgroundColor: "purple",
     "&:hover": {
-      backgroundColor: "#ffff", // Change to a different color on hover
       boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Shadow only at the bottom
     },
   },

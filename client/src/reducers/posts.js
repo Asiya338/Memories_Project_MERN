@@ -8,7 +8,7 @@ export default (posts = [], action) => {
 
     // dlete post to the state
     case DELETE:
-      return posts.filter((post) => post._id !== action.payload.id);
+      return posts.filter((post) => post._id !== action.payload._id);
     case FETCH_ALL:
       return action.payload; // Return the payload for all posts
 

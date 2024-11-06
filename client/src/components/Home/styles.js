@@ -1,16 +1,3 @@
-/* import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-  [theme.breakpoints.down("sm")]: {
-    dir: {
-      flexDirection: "column-reverse",
-    },
-  },
-}));
-
-export default useStyles;
- */
-
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
@@ -19,6 +6,11 @@ export default makeStyles((theme) => ({
     marginBottom: "1rem",
     display: "flex",
     padding: "16px",
+    "&:hover": {
+      padding: "16.5px",
+      backgroundColor: "#ffff", // Change to a different color on hover
+      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.7)", // Adding shadow
+    },
   },
   pagination: {
     borderRadius: 4,

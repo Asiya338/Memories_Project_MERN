@@ -6,6 +6,7 @@ export default makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+
   paper: {
     padding: theme.spacing(2),
     borderRadius: "4px",
@@ -16,7 +17,7 @@ export default makeStyles((theme) => ({
     },
 
     "&:hover": {
-      margin: "0.09rem",
+      margin: "0.05rem",
       backgroundColor: "#ffff", // Change to a different color on hover
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.7)", // Adding shadow
     },

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Typography,
@@ -23,6 +23,7 @@ const Auth = () => {
     password: "",
     confirmPassword: "",
   };
+
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -33,9 +34,10 @@ const Auth = () => {
   const googleSuccess = async (res) => {
     const result = res?.credential;
     const token = res?.clientId;
+
     try {
       dispatch({ type: "AUTH", data: { result, token } });
-      localStorage.setItem("profile", JSON.stringify({ result, token }));
+
       history.push("/");
       alert("login successful");
       console.log("login successful");
@@ -46,7 +48,8 @@ const Auth = () => {
   };
 
   const googleFailure = async (error) => {
-    console.log("error");
+    console.log("error to login");
+    alert("login failed");
   };
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
