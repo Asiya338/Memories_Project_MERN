@@ -1,4 +1,10 @@
-import { FETCH_ALL, DELETE, UPDATE, CREATE } from "../constants/actionTypes";
+import {
+  FETCH_ALL,
+  DELETE,
+  UPDATE,
+  CREATE,
+  FETCH_QUERY,
+} from "../constants/actionTypes";
 export default (posts = [], action) => {
   switch (action.type) {
     case UPDATE:
@@ -11,6 +17,8 @@ export default (posts = [], action) => {
       return posts.filter((post) => post._id !== action.payload._id);
     case FETCH_ALL:
       return action.payload; // Return the payload for all posts
+    case FETCH_QUERY:
+      return action.payload; // Return the payload for search posts
 
     case CREATE:
       return [...posts, action.payload];

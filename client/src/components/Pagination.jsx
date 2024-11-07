@@ -3,7 +3,7 @@ import {Pagination , PaginationItem } from '@material-ui/lab'
 import {Link} from 'react-router-dom'
 import useStyles from './styles.js';
 
-const Paginate = () => {
+const Paginate = ({page}) => {
     const classes = useStyles()
   return (
     <Pagination
@@ -14,7 +14,7 @@ const Paginate = () => {
  classes = {{ul : classes.ul}}
  renderItem={
     (item)=>(
-        <PaginationItem  {...item} component={Link} to={`/posts?page=${1}`} />
+        <PaginationItem  {...item} component={Link} to={`/posts?page=${page}`} />
             )}
     />
   )

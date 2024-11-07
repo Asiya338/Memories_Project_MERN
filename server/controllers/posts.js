@@ -7,7 +7,21 @@ export const getPosts = async (req, res) => {
     const postMessages = await PostMessage.find();
     res.status(200).json(postMessages);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(404).json({ message: error });
+  }
+};
+// to fetch by query
+
+export const getPostsBySearch = async (req, res) => {
+  const { searchQuery, tags } = req.query;
+  try {
+    const title = new RegExp(searchQuery, "i"); //to ignore lower-upper case
+    const posts = await PostMessage.find({
+      $or: [{ title }, { tags: { $in: tags.split(",") } }],
+    });
+    res.json({ data: posts });
+  } catch (error) {
+    res.status(404).json({ message: `failed to search : ${error}` });
   }
 };
 

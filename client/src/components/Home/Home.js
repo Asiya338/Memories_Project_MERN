@@ -8,11 +8,12 @@ import {
   TextField,
   Button,
 } from "@material-ui/core";
+
 import Posts from "../Posts/Posts.js";
 import Form from "../Form/Form.js";
 import useStyles from "./styles.js";
 import { useHistory, useLocation } from "react-router-dom";
-import { getPosts } from "../../actions/posts.js";
+import { getPosts, getPostsBySearch } from "../../actions/posts.js";
 import { useDispatch } from "react-redux";
 import Pagination from "../Pagination.jsx";
 import ChipInput from "material-ui-chip-input";
@@ -33,17 +34,21 @@ const Home = () => {
 
   const [currentId, setCurrentId] = useState(null); //to maintain id of post for editing
   const dispatch = useDispatch(); //to dispatch action : react-redux =: hook
-  useEffect(() => {
+  /* useEffect(() => {
     dispatch(getPosts());
-  }, [currentId, dispatch]);
+  }, [dispatch]); */
 
   const handleAdd = (tag) => {
     setTags([...tags, tag]);
   };
 
   const handleSearch = () => {
-    if (search.trim()) {
-      //dispatch to fetch based on tags
+    if (search.trim() || tags) {
+      //dispatch to fetch based on tags and search
+      dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
+      history.push(
+        `/posts/search?searchquery=${search || "none"}&tags=${tags.join(",")}`
+      );
     } else {
       history.push("/");
     }
@@ -105,7 +110,7 @@ const Home = () => {
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
             <Paper elevation={6} className={classes.pagination}>
-              <Pagination />
+              <Pagination page={page} />
             </Paper>
           </Grid>
         </Grid>

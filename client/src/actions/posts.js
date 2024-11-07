@@ -1,5 +1,12 @@
 import * as api from "../api";
-import { FETCH_ALL, UPDATE, DELETE, CREATE } from "../constants/actionTypes";
+import {
+  FETCH_ALL,
+  UPDATE,
+  DELETE,
+  CREATE,
+  FETCH_QUERY,
+} from "../constants/actionTypes";
+
 // Action creator using redux-thunk
 export const getPosts = () => async (dispatch) => {
   try {
@@ -10,6 +17,21 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
+//search => fetch posts by tags
+
+export const getPostsBySearch = (searchQuery) => async (dispatch) => {
+  try {
+    const {
+      data: { data },
+    } = await api.fetchPostsBySearch(searchQuery);
+    console.log(data);
+    dispatch({ type: FETCH_QUERY, payload: data });
+  } catch (error) {
+    console.log("Error in actions: getPostsBySearch", error.message);
+  }
+};
+
+//create post
 export const createPost = (post) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post);
@@ -20,6 +42,7 @@ export const createPost = (post) => async (dispatch) => {
   }
 };
 
+//update post created by creator
 export const updatePost = (id, postData) => async (dispatch) => {
   try {
     const { data } = await api.updatePost(id, postData);
@@ -29,6 +52,7 @@ export const updatePost = (id, postData) => async (dispatch) => {
   }
 };
 
+//delete post , created by creator
 export const deletePost = (id) => async (dispatch) => {
   try {
     await api.deletePost(id);
@@ -38,6 +62,7 @@ export const deletePost = (id) => async (dispatch) => {
   }
 };
 
+//like post > any post
 export const likePost = (id) => async (dispatch) => {
   try {
     const { data } = await api.likePost(id);

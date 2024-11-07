@@ -8,6 +8,7 @@ import {
   CardContent,
   CardMedia,
 } from "@material-ui/core";
+import mem2 from "../../../images/mem2.png";
 import { useDispatch } from "react-redux";
 import moment from "moment";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
@@ -51,12 +52,10 @@ const Post = ({ post, setCurrentId }) => {
     );
   };
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} elevation={6} raised>
       <CardMedia
         className={classes.media}
-        image={
-          post.selectedFile || "https://i.ibb.co/cvkcJFm/memories-Text.png"
-        } // Fallback image
+        image={post.selectedFile || mem2} // Fallback image
         title={post.title}
       />
       <div className={classes.overlay}>

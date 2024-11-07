@@ -21,7 +21,9 @@ const App = () => {
           <Route
             path="/auth"
             exact
-            component={() => (!user ? <Auth /> : <Redirect to="/posts" />)}
+            component={() =>
+              !user?.result?.name ? <Auth /> : <Redirect to="/posts" />
+            }
           ></Route>
         </Switch>
       </Container>

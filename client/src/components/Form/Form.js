@@ -90,9 +90,15 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Memory"
           fullWidth
+          multiline
+          minRows={4}
+          maxRows={8}
           value={postData.message}
           onChange={(e) => {
-            setPostData({ ...postData, message: e.target.value });
+            setPostData({
+              ...postData,
+              message: e.target.value,
+            });
           }}
         ></TextField>
         <TextField
@@ -108,6 +114,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
         <div className={classes.fileInput}>
           <FileBase
+            fullWidth
             type="file"
             multiple={false}
             onDone={({ base64 }) => {
@@ -117,7 +124,6 @@ const Form = ({ currentId, setCurrentId }) => {
         </div>
 
         <Button
-          //fullWidth
           className={classes.buttonSubmit}
           type="submit"
           color="primary"
@@ -128,7 +134,6 @@ const Form = ({ currentId, setCurrentId }) => {
           <b>{currentId ? "RE-POST" : "POST"} </b>
         </Button>
         <Button
-          //fullWidth
           className={classes.buttonSubmit}
           type="submit"
           color="secondary"

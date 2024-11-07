@@ -6,7 +6,7 @@ import GoogleNav from "./GoogleNav.js";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { AppBar, Typography } from "@material-ui/core";
-import { decode } from "jwt-decode";
+import { jwt_decode } from "jwt-decode";
 const Navbar = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -20,10 +20,18 @@ const Navbar = () => {
 
   useEffect(() => {
     const profile = JSON.parse(localStorage.getItem("profile"));
-    const token = user.token;
-
+    /*  if (user) {
+      const token = user.token;
+      const decodedToken = jwt_decode(token);
+      if (decodedToken.exp * 1000 < Date.now()) {
+        logout();
+      }
+    } else {
+      console.log("User not found");
+    } */
     setUser(profile);
   }, []);
+
   return (
     <AppBar position="static" color="inherit" className={classes.appBar}>
       <div className={classes.brandContainer}>
