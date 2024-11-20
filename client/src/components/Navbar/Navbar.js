@@ -6,12 +6,12 @@ import GoogleNav from "./GoogleNav.js";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { AppBar, Typography } from "@material-ui/core";
-import { jwt_decode } from "jwt-decode";
 const Navbar = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  console.log(user);
   const logout = () => {
     dispatch({ type: "LOGOUT" });
     history.push("/");
@@ -50,7 +50,7 @@ const Navbar = () => {
           className={classes.image}
         />
       </div>
-      {!user?.result?.googleId ? <CustomNav /> : <GoogleNav />}
+      {user?.result?._id ? <CustomNav /> : <GoogleNav />}
     </AppBar>
   );
 };

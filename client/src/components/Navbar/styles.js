@@ -12,20 +12,14 @@ const useStyles = makeStyles((theme) => ({
     transition: "background-color 0.3s ease, box-shadow 0.3s ease",
     padding: "8px  30px",
     "&:hover": {
-      backgroundColor: "#ffff", // Change to a different color on hover
-<<<<<<< HEAD
-      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)", // Adding shadow
+      backgroundColor: "#ffff",
+      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)", // Adding shadow
     },
     [theme.breakpoints.down("sm")]: {
       margin: "10px 0",
       borderRadius: 6,
-
       flexDirection: "column",
-
       padding: "0px  0px",
-=======
-      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.7)", // Adding shadow
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
     },
   },
 
@@ -34,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     fontSize: "4rem",
     background: "linear-gradient(270deg, #EE00FF, #970000, #d900F9 , #991090)",
-
     backgroundSize: "200% 100%", // Make the gradient larger than the text
     backgroundPosition: "left center", // Start position for the animation
     color: "transparent", // Make the text transparent
@@ -72,14 +65,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     width: "400px",
     justifyContent: "flex-end",
-<<<<<<< HEAD
     [theme.breakpoints.down("sm")]: {
       justifyContent: "flex-end",
       width: "300px",
       padding: "0px  0px",
     },
-=======
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   },
   profile: {
     display: "flex",
@@ -89,17 +79,14 @@ const useStyles = makeStyles((theme) => ({
   userName: {
     display: "flex",
     alignItems: "center",
-<<<<<<< HEAD
     [theme.breakpoints.down("sm")]: {
       fontSize: "16px",
     },
-=======
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   },
   avatar: {
     backgroundColor: "purple",
     "&:hover": {
-      boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Shadow only at the bottom
+      boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Shadow only at the bottom
     },
   },
   purple: {
@@ -109,12 +96,9 @@ const useStyles = makeStyles((theme) => ({
   logout: {
     padding: "10px 20px",
     fontWeight: "bold",
-<<<<<<< HEAD
     [theme.breakpoints.down("sm")]: {
       padding: "6px  10px",
     },
-=======
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   },
 }));
 

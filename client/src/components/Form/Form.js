@@ -4,30 +4,16 @@ import { useSelector } from "react-redux";
 import FileBase from "react-file-base64";
 import { useDispatch } from "react-redux";
 import { createPost, updatePost } from "../../actions/posts.js";
-<<<<<<< HEAD
 import { useHistory } from "react-router-dom";
 import { TextField, Button, Paper, Typography } from "@material-ui/core";
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     title: "",
-=======
-import { jwtDecode } from "jwt-decode";
-import { TextField, Button, Paper, Typography } from "@material-ui/core";
-
-const Form = ({ currentId, setCurrentId }) => {
-  const classes = useStyles();
-  const dispatch = useDispatch();
-
-  const [postData, setPostData] = useState({
-    title: "",
-
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
     message: "",
     tags: "",
     selectedFile: "",
   });
-<<<<<<< HEAD
   const history = useHistory();
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -35,13 +21,6 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const post = useSelector((state) =>
     currentId ? state.posts.posts.find((p) => p._id === currentId) : null
-=======
-
-  const user = JSON.parse(localStorage.getItem("profile"));
-
-  const post = useSelector((state) =>
-    currentId ? state.posts.find((p) => p._id === currentId) : null
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   );
 
   useEffect(() => {
@@ -63,11 +42,7 @@ const Form = ({ currentId, setCurrentId }) => {
   const handleSubmit = async (event) => {
     event.preventDefault(); //prevent browser default loading
     if (currentId === 0) {
-<<<<<<< HEAD
       dispatch(createPost({ ...postData, name: user?.result?.name }, history));
-=======
-      dispatch(createPost({ ...postData, name: user?.result?.name }));
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
       clear();
     } else {
       dispatch(
@@ -87,11 +62,7 @@ const Form = ({ currentId, setCurrentId }) => {
   }
 
   return (
-<<<<<<< HEAD
     <Paper className={classes.paper} elevation={6}>
-=======
-    <Paper className={classes.paper}>
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
       <form
         className={`${classes.form} ${classes.root}`}
         autoComplete="off"
@@ -120,10 +91,7 @@ const Form = ({ currentId, setCurrentId }) => {
           multiline
           minRows={4}
           maxRows={8}
-<<<<<<< HEAD
           className={classes.textField}
-=======
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
           value={postData.message}
           onChange={(e) => {
             setPostData({
@@ -144,8 +112,8 @@ const Form = ({ currentId, setCurrentId }) => {
         ></TextField>
 
         <div className={classes.fileInput}>
+          &nbsp;{" "}
           <FileBase
-            fullWidth
             type="file"
             multiple={false}
             onDone={({ base64 }) => {

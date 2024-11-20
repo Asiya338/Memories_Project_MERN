@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
 import PostMessage from "../models/postMessage.js";
 
-//to fetch posts
+// To fetch posts
 export const getPosts = async (req, res) => {
-<<<<<<< HEAD
   const { page } = req.query;
 
   try {
@@ -20,17 +19,12 @@ export const getPosts = async (req, res) => {
       currentPage: Number(page),
       numberOfPages: Math.ceil(total / LIMIT),
     });
-=======
-  try {
-    const postMessages = await PostMessage.find();
-    res.status(200).json(postMessages);
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   } catch (error) {
     res.status(404).json({ message: error });
   }
 };
-<<<<<<< HEAD
 
+// To fetch a single post
 export const getPost = async (req, res) => {
   const { id } = req.params;
   try {
@@ -41,24 +35,33 @@ export const getPost = async (req, res) => {
   }
 };
 
-=======
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
-// to fetch by query
-
+// To fetch posts by search query
 export const getPostsBySearch = async (req, res) => {
   const { searchQuery, tags } = req.query;
   try {
-    const title = new RegExp(searchQuery, "i"); //to ignore lower-upper case
+    // Create a case-insensitive regex for the title
+    const title = new RegExp(searchQuery, "i");
+
+    // Create case-insensitive regex for tags if tags are provided
+    const tagRegex = tags
+      ? tags.split(",").map((tag) => new RegExp(tag, "i"))
+      : [];
+
     const posts = await PostMessage.find({
-      $or: [{ title }, { tags: { $in: tags.split(",") } }],
+      $or: [{ title }, { tags: { $in: tagRegex.length ? tagRegex : [] } }],
     });
+    if (posts.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No posts found matching your search criteria." });
+    }
     res.json({ data: posts });
   } catch (error) {
-    res.status(404).json({ message: `failed to search : ${error}` });
+    res.status(404).json({ message: `Failed to search: ${error}` });
   }
 };
 
-//to create a new post
+// To create a new post
 export const createPost = async (req, res) => {
   const post = req.body;
   const newPost = new PostMessage({
@@ -73,12 +76,11 @@ export const createPost = async (req, res) => {
     res.status(201).json(newPost);
   } catch (error) {
     res.status(409).json({ message: error.message });
-    console.log("error see.");
+    console.log("Error:", error);
   }
 };
 
-//to update a post existing
-
+// To update an existing post
 export const updatePost = async (req, res) => {
   const { id: _id } = req.params;
   const post = req.body;
@@ -96,8 +98,7 @@ export const updatePost = async (req, res) => {
   res.json(updatedPost);
 };
 
-//to delete a post
-
+// To delete a post
 export const deletePost = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -108,51 +109,44 @@ export const deletePost = async (req, res) => {
   res.json({ message: "Post deleted successfully." });
 };
 
-//like - unlike post
-
+// Like - Unlike post
 export const likePost = async (req, res) => {
   const { id } = req.params;
   if (!req.userId) {
-<<<<<<< HEAD
-    return res.status(404).json({ message: "unauthenticated can`t like post" });
-  }
-  if (!mongoose.Types.ObjectId.isValid(id)) {
     return res
-=======
-    res.status(404).json({ message: "unauthenticated can`t like post" });
+      .status(404)
+      .json({ message: "Unauthenticated - can't like post" });
   }
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    res
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
-      .status(404)
-      .json({ message: "No post with that ID : in likepost backend" });
+    return res.status(404).json({ message: "Invalid post ID" });
   }
+
   const post = await PostMessage.findById(id);
-  const index = await post.likes.findIndex((id) => id === String(req.userId));
+  const index = post.likes.findIndex((id) => id === String(req.userId));
+
   if (index === -1) {
-    post.likes.push(String(req.userId));
+    post.likes.push(String(req.userId)); // Like the post
   } else {
-    post.likes = post.likes.filter((id) => {
-      id !== String(req.userId);
-    });
+    post.likes = post.likes.filter((id) => id !== String(req.userId)); // Unlike the post
   }
+
   const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {
     new: true,
   });
 
   res.send(updatedPost);
 };
-<<<<<<< HEAD
 
+// Comment on a post
 export const commentPost = async (req, res) => {
   const { value } = req.body;
   const { id } = req.params;
   const post = await PostMessage.findById(id);
   post.comments.push(value);
+
   const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {
     new: true,
   });
+
   res.json(updatedPost);
 };
-=======
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785

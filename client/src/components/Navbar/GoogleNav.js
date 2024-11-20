@@ -21,7 +21,7 @@ const GoogleNav = () => {
   }, [location]);
 
   let data = null;
-  if (user && user.result) {
+  if (user && user?.result) {
     try {
       data = jwtDecode(user?.result);
     } catch (error) {
@@ -49,19 +49,11 @@ const GoogleNav = () => {
         <div className={classes.profile}>
           <Avatar
             className={classes.avatar}
-<<<<<<< HEAD
-            alt={data.given_name}
-            src={data.picture}
+            alt={data?.given_name}
+            src={data?.picture}
           ></Avatar>
           <Typography className={classes.userName} variant="h6">
             {data?.given_name}
-=======
-            alt={data.name}
-            src={data.picture}
-          ></Avatar>
-          <Typography className={classes.userName} variant="h6">
-            {data?.name}
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
           </Typography>
           <Button
             variant="contained"

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Comments from "./Comments.jsx";
 import mem2 from "../../images/mem2.png";
 import React, { useEffect } from "react";
@@ -15,6 +14,7 @@ import { useHistory, useParams } from "react-router-dom";
 import useStyles from "./styles.js";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import moment from "moment";
+
 const PostDetails = () => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ const PostDetails = () => {
 
   const classes = useStyles();
   const { id } = useParams();
+
   useEffect(() => {
     dispatch(getPost(id));
   }, [id]);
@@ -33,9 +34,11 @@ const PostDetails = () => {
       );
     }
   }, [post]);
+
   if (!post) {
     return null;
   }
+
   if (isLoading) {
     return (
       <Paper elevation={6} className={classes.loadingPaper}>
@@ -43,9 +46,11 @@ const PostDetails = () => {
       </Paper>
     );
   }
+
   const openPost = (_id) => {
     history.push(`/posts/${_id}`);
   };
+
   const recommendedPosts = Array.isArray(posts)
     ? posts.filter(({ _id }) => post._id !== _id)
     : [];
@@ -81,10 +86,10 @@ const PostDetails = () => {
         </div>
       </div>
 
-      {recommendedPosts.length && (
+      {recommendedPosts.length > 0 && (
         <div className={classes.section}>
           <Typography variant="h5" gutterBottom>
-            You might also like :{" "}
+            You might also like:{" "}
           </Typography>
           <Divider style={{ margin: "20px 0" }} />
           <div className={classes.recommendedPosts}>
@@ -120,14 +125,3 @@ const PostDetails = () => {
 };
 
 export default PostDetails;
-=======
-import React from 'react'
-
-const PostDetails = () => {
-  return (
-    <div>PostDetails</div>
-  )
-}
-
-export default PostDetails
->>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785

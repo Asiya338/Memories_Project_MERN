@@ -9,7 +9,6 @@ export default makeStyles((theme) => ({
     padding: theme.spacing(2),
 
     "&:hover": {
-      border: "1px solid rgba(0, 0, 0, 0.7)",
       backgroundColor: "#ffff", // Change to a different color on hover
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.7)", // Adding shadow
     },

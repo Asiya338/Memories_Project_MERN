@@ -72,6 +72,7 @@ export default makeStyles((theme) => ({
     height: "300px",
     overflowY: "auto",
     marginRight: "30px",
+    width: "50%",
     [theme.breakpoints.down("sm")]: {
       marginRight: "10px",
       width: "100%",
@@ -107,7 +108,7 @@ export default makeStyles((theme) => ({
     color: "#333",
   },
   writeComment: {
-    width: "50%",
+    width: "45%",
     [theme.breakpoints.down("sm")]: {
       marginRight: "10px",
       width: "100%",
