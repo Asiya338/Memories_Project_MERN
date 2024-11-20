@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Comments from "./Comments.jsx";
 import mem2 from "../../images/mem2.png";
 import React, { useEffect } from "react";
@@ -119,3 +120,14 @@ const PostDetails = () => {
 };
 
 export default PostDetails;
+=======
+import React from 'react'
+
+const PostDetails = () => {
+  return (
+    <div>PostDetails</div>
+  )
+}
+
+export default PostDetails
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785

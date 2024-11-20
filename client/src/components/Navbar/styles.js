@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "8px  30px",
     "&:hover": {
       backgroundColor: "#ffff", // Change to a different color on hover
+<<<<<<< HEAD
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)", // Adding shadow
     },
     [theme.breakpoints.down("sm")]: {
@@ -22,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
 
       padding: "0px  0px",
+=======
+      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.7)", // Adding shadow
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
     },
   },
 
@@ -68,11 +72,14 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     width: "400px",
     justifyContent: "flex-end",
+<<<<<<< HEAD
     [theme.breakpoints.down("sm")]: {
       justifyContent: "flex-end",
       width: "300px",
       padding: "0px  0px",
     },
+=======
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   },
   profile: {
     display: "flex",
@@ -82,9 +89,12 @@ const useStyles = makeStyles((theme) => ({
   userName: {
     display: "flex",
     alignItems: "center",
+<<<<<<< HEAD
     [theme.breakpoints.down("sm")]: {
       fontSize: "16px",
     },
+=======
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   },
   avatar: {
     backgroundColor: "purple",
@@ -99,9 +109,12 @@ const useStyles = makeStyles((theme) => ({
   logout: {
     padding: "10px 20px",
     fontWeight: "bold",
+<<<<<<< HEAD
     [theme.breakpoints.down("sm")]: {
       padding: "6px  10px",
     },
+=======
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   },
 }));
 

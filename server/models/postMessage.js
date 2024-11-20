@@ -14,10 +14,13 @@ const postSchema = new mongoose.Schema({
 
     default: [],
   },
+<<<<<<< HEAD
   comments: {
     type: [String],
     default: [],
   },
+=======
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   createdAt: {
     type: Date,
     default: new Date(),

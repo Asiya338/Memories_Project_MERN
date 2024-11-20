@@ -18,7 +18,11 @@ export default makeStyles((theme) => ({
 
     "&:hover": {
       backgroundColor: "#ffff", // Change to a different color on hover
+<<<<<<< HEAD
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)", // Adding shadow
+=======
+      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.7)", // Adding shadow
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
     },
   },
   form: {
@@ -35,6 +39,7 @@ export default makeStyles((theme) => ({
     marginBottom: 10,
     margin: 10,
   },
+<<<<<<< HEAD
 
   textField: {
     "& .MuiOutlinedInput-root textarea": {
@@ -55,4 +60,6 @@ export default makeStyles((theme) => ({
       },
     },
   },
+=======
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
 }));

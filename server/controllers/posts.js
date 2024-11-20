@@ -3,6 +3,7 @@ import PostMessage from "../models/postMessage.js";
 
 //to fetch posts
 export const getPosts = async (req, res) => {
+<<<<<<< HEAD
   const { page } = req.query;
 
   try {
@@ -19,10 +20,16 @@ export const getPosts = async (req, res) => {
       currentPage: Number(page),
       numberOfPages: Math.ceil(total / LIMIT),
     });
+=======
+  try {
+    const postMessages = await PostMessage.find();
+    res.status(200).json(postMessages);
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   } catch (error) {
     res.status(404).json({ message: error });
   }
 };
+<<<<<<< HEAD
 
 export const getPost = async (req, res) => {
   const { id } = req.params;
@@ -34,6 +41,8 @@ export const getPost = async (req, res) => {
   }
 };
 
+=======
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
 // to fetch by query
 
 export const getPostsBySearch = async (req, res) => {
@@ -104,10 +113,17 @@ export const deletePost = async (req, res) => {
 export const likePost = async (req, res) => {
   const { id } = req.params;
   if (!req.userId) {
+<<<<<<< HEAD
     return res.status(404).json({ message: "unauthenticated can`t like post" });
   }
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res
+=======
+    res.status(404).json({ message: "unauthenticated can`t like post" });
+  }
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    res
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
       .status(404)
       .json({ message: "No post with that ID : in likepost backend" });
   }
@@ -126,6 +142,7 @@ export const likePost = async (req, res) => {
 
   res.send(updatedPost);
 };
+<<<<<<< HEAD
 
 export const commentPost = async (req, res) => {
   const { value } = req.body;
@@ -137,3 +154,5 @@ export const commentPost = async (req, res) => {
   });
   res.json(updatedPost);
 };
+=======
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785

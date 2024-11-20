@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
+=======
+import React, { useState, useEffect } from "react";
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
 import {
   Container,
   Grid,
@@ -7,15 +11,23 @@ import {
   AppBar,
   TextField,
   Button,
+<<<<<<< HEAD
   Typography,
 } from "@material-ui/core";
 import Slider from "./Slider.js";
+=======
+} from "@material-ui/core";
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
 
 import Posts from "../Posts/Posts.js";
 import Form from "../Form/Form.js";
 import useStyles from "./styles.js";
 import { useHistory, useLocation } from "react-router-dom";
+<<<<<<< HEAD
 import { getPostsBySearch } from "../../actions/posts.js";
+=======
+import { getPosts, getPostsBySearch } from "../../actions/posts.js";
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
 import { useDispatch } from "react-redux";
 import Pagination from "../Pagination.jsx";
 import ChipInput from "material-ui-chip-input";
@@ -36,6 +48,12 @@ const Home = () => {
 
   const [currentId, setCurrentId] = useState(null); //to maintain id of post for editing
   const dispatch = useDispatch(); //to dispatch action : react-redux =: hook
+<<<<<<< HEAD
+=======
+  /* useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]); */
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
 
   const handleAdd = (tag) => {
     setTags([...tags, tag]);
@@ -108,6 +126,7 @@ const Home = () => {
               </Button>
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
+<<<<<<< HEAD
             {!searchQuery && !tags.length && (
               <Paper elevation={6} className={classes.pagination}>
                 <Pagination page={page} />
@@ -130,6 +149,13 @@ const Home = () => {
         {/******* slider */}
 
         <Slider />
+=======
+            <Paper elevation={6} className={classes.pagination}>
+              <Pagination page={page} />
+            </Paper>
+          </Grid>
+        </Grid>
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
       </Container>
     </Grow>
   );

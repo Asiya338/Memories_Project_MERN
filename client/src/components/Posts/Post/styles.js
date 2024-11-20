@@ -6,7 +6,10 @@ export default makeStyles({
     paddingTop: "56.25%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     backgroundBlendMode: "darken",
+<<<<<<< HEAD
     cursor: "pointer",
+=======
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
     "&:hover": {
       backgroundColor: "rgba(0, 0, 0, 0.2)",
     },
@@ -26,7 +29,12 @@ export default makeStyles({
     position: "relative",
     "&:hover": {
       backgroundColor: "#ffff",
+<<<<<<< HEAD
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
+=======
+      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.7)",
+      margin: "0.09rem",
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
     },
   },
   overlay: {
@@ -54,7 +62,11 @@ export default makeStyles({
     fontFamily: " Georgia, serif",
   },
   cardActions: {
+<<<<<<< HEAD
     padding: "0 8px 8px 8px",
+=======
+    padding: "0 16px 8px 16px",
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
     display: "flex",
     justifyContent: "space-between",
   },
@@ -69,7 +81,12 @@ export default makeStyles({
     },
   },
   hashtag: {
+<<<<<<< HEAD
     color: "#1DA1F2",
+=======
+    color: "#1DA1F2" /* Twitter Blue */,
+
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
     cursor: "pointer",
   },
 });

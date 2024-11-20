@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
+=======
+import React, { useEffect, useState } from "react";
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
 import {
   Button,
   Typography,
@@ -16,7 +20,10 @@ import LockOutLinedIcon from "@material-ui/icons/LockOpenOutlined";
 import { useDispatch } from "react-redux";
 
 const Auth = () => {
+<<<<<<< HEAD
   const CLIENT_ID = process.env.CLIENT_ID || " ";
+=======
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   const initialState = {
     firstName: " ",
     lastName: "",
@@ -136,7 +143,11 @@ const Auth = () => {
             {isSignup ? "Sign Up" : "Sign In"}
           </Button>
           <Typography align="center">or</Typography>
+<<<<<<< HEAD
           <GoogleOAuthProvider clientId={CLIENT_ID}>
+=======
+          <GoogleOAuthProvider clientId="567845225014-tugu984vlhmmbp8ia38h4tr3qcpjqfm6.apps.googleusercontent.com">
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
             <Button fullWidth color="secondary">
               <GoogleLogin
                 onSuccess={(res) => {

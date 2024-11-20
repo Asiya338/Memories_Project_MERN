@@ -5,6 +5,7 @@ import {
   DELETE,
   CREATE,
   FETCH_QUERY,
+<<<<<<< HEAD
   START_LOADING,
   END_LOADING,
   FETCH_POST,
@@ -30,6 +31,15 @@ export const getPosts = (page) => async (dispatch) => {
     // console.log(data);
     dispatch({ type: FETCH_ALL, payload: data });
     dispatch({ type: END_LOADING });
+=======
+} from "../constants/actionTypes";
+
+// Action creator using redux-thunk
+export const getPosts = () => async (dispatch) => {
+  try {
+    const { data } = await api.fetchPosts(); // Call the API to fetch posts
+    dispatch({ type: FETCH_ALL, payload: data }); // Dispatch the fetched data
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   } catch (error) {
     console.log("Error in actions: Fetch", error.message); // Log the error if the API call fails
   }
@@ -39,6 +49,7 @@ export const getPosts = (page) => async (dispatch) => {
 
 export const getPostsBySearch = (searchQuery) => async (dispatch) => {
   try {
+<<<<<<< HEAD
     dispatch({ type: START_LOADING });
     const {
       data: { data },
@@ -46,18 +57,33 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
     //console.log(data);
     dispatch({ type: FETCH_QUERY, payload: data });
     dispatch({ type: END_LOADING });
+=======
+    const {
+      data: { data },
+    } = await api.fetchPostsBySearch(searchQuery);
+    console.log(data);
+    dispatch({ type: FETCH_QUERY, payload: data });
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   } catch (error) {
     console.log("Error in actions: getPostsBySearch", error.message);
   }
 };
 
 //create post
+<<<<<<< HEAD
 export const createPost = (post, history) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
     const { data } = await api.createPost(post);
     history.push(`/posts/${data._id}`);
     dispatch({ type: CREATE, payload: data });
+=======
+export const createPost = (post) => async (dispatch) => {
+  try {
+    const { data } = await api.createPost(post);
+    dispatch({ type: CREATE, payload: data });
+    console.log(post);
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   } catch (error) {
     console.log("Error in actions: create => ", error.message); // Log the error if the API call fails
   }
@@ -92,6 +118,7 @@ export const likePost = (id) => async (dispatch) => {
     console.log(error);
   }
 };
+<<<<<<< HEAD
 
 //comment on posts
 
@@ -105,3 +132,5 @@ export const commentPost = (value, id) => async (dispatch) => {
     console.log(error);
   }
 };
+=======
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785

@@ -11,10 +11,16 @@ const CustomNav = () => {
   const location = useLocation();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   let data = null;
+<<<<<<< HEAD
   if (user) {
     try {
       data = user?.result;
       // console.log(data.name);
+=======
+  if (user && user.result) {
+    try {
+      data = user?.token;
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
     } catch (error) {
       console.error("JWT decode error:", error);
       data = null;
@@ -44,7 +50,11 @@ const CustomNav = () => {
       {user !== null ? (
         <div className={classes.profile}>
           <Avatar className={classes.avatar} alt={data.name} src={data.picture}>
+<<<<<<< HEAD
             {user?.result?.name?.charAt(0)}
+=======
+            {user?.result?.name.charAt(0)}
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
           </Avatar>
           <Typography className={classes.userName} variant="h6">
             {user?.result?.name}

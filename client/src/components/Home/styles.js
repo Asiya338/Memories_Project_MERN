@@ -1,20 +1,33 @@
+<<<<<<< HEAD
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
+=======
+import { makeStyles } from "@material-ui/core/styles";
+
+export default makeStyles((theme) => ({
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
   appBarSearch: {
     borderRadius: 4,
     marginBottom: "1rem",
     display: "flex",
     padding: "16px",
     "&:hover": {
+<<<<<<< HEAD
       backgroundColor: "#ffff", // Change to a different color on hover
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)", // Adding shadow
+=======
+      padding: "16.5px",
+      backgroundColor: "#ffff", // Change to a different color on hover
+      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.7)", // Adding shadow
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
     },
   },
   pagination: {
     borderRadius: 4,
     marginTop: "1rem",
     padding: "16px",
+<<<<<<< HEAD
     "&:hover": {
       backgroundColor: "#ffff", // Change to a different color on hover
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)", // Adding shadow
@@ -56,3 +69,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default useStyles;
+=======
+  },
+  gridContainer: {
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column-reverse",
+    },
+  },
+  [theme.breakpoints.down("sm")]: {
+    dir: {
+      flexDirection: "column-reverse",
+    },
+  },
+}));
+>>>>>>> 573b0e9a00586d0c7a7b0ecc1946f4b24f18c785
