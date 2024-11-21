@@ -3,14 +3,24 @@ import PostMessage from "../models/postMessage.js";
 
 // To fetch posts
 export const getPosts = async (req, res) => {
-  const { page } = req.query;
+  const { page, sortBy } = req.query;
 
   try {
     const LIMIT = 8;
+    let sortOption = {};
+    if (sortBy === "id-asc") {
+      sortOption = { _id: 1 };
+    } else if (sortBy === "alphabetical") {
+      sortOption = { title: 1 };
+    } else if (sortBy === "aplha-reverse") {
+      sortOption = { title: -1 };
+    } else {
+      sortOption = { _id: -1 };
+    }
     const startIndex = (Number(page) - 1) * LIMIT;
     const total = await PostMessage.countDocuments({});
     const posts = await PostMessage.find()
-      .sort({ _id: -1 }) //gets latest posts
+      .sort(sortOption)
       .limit(LIMIT)
       .skip(startIndex);
     console.log(posts.length);

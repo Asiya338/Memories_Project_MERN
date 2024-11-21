@@ -10,10 +10,7 @@ import {
   COMMENT,
 } from "../constants/actionTypes";
 
-export default (
-  state = { isLoading: true, posts: [], filteredPosts: [] },
-  action
-) => {
+export default (state = { isLoading: true, posts: [] }, action) => {
   switch (action.type) {
     case START_LOADING:
       return { ...state, isLoading: true };
@@ -25,7 +22,8 @@ export default (
         posts: action.payload.data,
         currentPage: action.payload.currentPage,
         numberOfPages: action.payload.numberOfPages,
-      }; // Return the payload for all posts
+      };
+
     case FETCH_QUERY:
       return {
         ...state,

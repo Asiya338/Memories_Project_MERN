@@ -32,11 +32,15 @@ const Home = () => {
   const searchQuery = query.get("searchQuery");
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState([]);
-
+  const [sortBy, setSortBy] = useState("latest");
   const [currentId, setCurrentId] = useState(null); //to maintain id of post for editing
   const dispatch = useDispatch(); //to dispatch action : react-redux =: hook
   const handleAdd = (tag) => {
     setTags([...tags, tag]);
+  };
+
+  const handleSortChange = (event) => {
+    setSortBy(event.target.value);
   };
 
   const handleSearch = () => {
@@ -99,16 +103,38 @@ const Home = () => {
               />
               <Button
                 variant="contained"
-                color="secondary"
+                color="primary"
                 onClick={handleSearch}
+                fullWidth
               >
-                Search
+                <b>Search</b>
+              </Button>
+
+              <Button
+                variant="contained"
+                color="secondary"
+                fullWidth
+                style={{ marginTop: "8px" }}
+              >
+                <b>Sort By : </b>
+                &nbsp;
+                <select
+                  value={sortBy}
+                  onChange={handleSortChange}
+                  className={classes.sortStyle}
+                >
+                  <option value="latest">Latest(default)</option>
+                  <option value="id-asc">Oldest</option>
+                  <option value="alphabetical">A-Z</option>
+                  <option value="aplha-reverse">Z-A</option>
+                </select>
               </Button>
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
+
             {!searchQuery && !tags.length && (
               <Paper elevation={6} className={classes.pagination}>
-                <Pagination page={page} />
+                <Pagination page={page} sortBy={sortBy} />
               </Paper>
             )}
 

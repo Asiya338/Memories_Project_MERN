@@ -90,7 +90,7 @@ const Form = ({ currentId, setCurrentId }) => {
           fullWidth
           multiline
           minRows={4}
-          maxRows={5}
+          maxRows={4}
           className={classes.textField}
           value={postData.message}
           onChange={(e) => {

@@ -11,6 +11,16 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)", // Adding shadow
     },
   },
+  sortStyle: {
+    backgroundColor: theme.palette.secondary.main,
+    padding: "3px",
+    fontSize: "12px",
+    borderRadius: "5px",
+    border: "1px solid #ccc",
+    outline: "none",
+    cursor: "pointer",
+    color: "white",
+  },
   pagination: {
     borderRadius: 4,
     marginTop: "1rem",
@@ -28,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
   textCont: {
     borderRadius: "8px",
-    padding: "68px", // Add padding to give space around the content
+    padding: "50px", // Add padding to give space around the content
     marginTop: "10px", // Corrected to have a single top margin
     backgroundImage:
       "url(https://plus.unsplash.com/premium_photo-1698381563570-428ea5c8e011?w=800&h=400&auto=format&fit=clip&q=80)",
