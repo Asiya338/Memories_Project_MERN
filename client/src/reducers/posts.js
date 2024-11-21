@@ -10,7 +10,10 @@ import {
   COMMENT,
 } from "../constants/actionTypes";
 
-export default (state = { isLoading: true, posts: [] }, action) => {
+export default (
+  state = { isLoading: true, posts: [], filteredPosts: [] },
+  action
+) => {
   switch (action.type) {
     case START_LOADING:
       return { ...state, isLoading: true };
@@ -62,7 +65,6 @@ export default (state = { isLoading: true, posts: [] }, action) => {
         ...state,
         posts: state.posts.filter((post) => post._id !== action.payload),
       };
-
     default:
       return state; // Return the current state if no matching action type
   }

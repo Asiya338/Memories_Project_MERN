@@ -35,7 +35,6 @@ const Home = () => {
 
   const [currentId, setCurrentId] = useState(null); //to maintain id of post for editing
   const dispatch = useDispatch(); //to dispatch action : react-redux =: hook
-
   const handleAdd = (tag) => {
     setTags([...tags, tag]);
   };
@@ -117,8 +116,8 @@ const Home = () => {
               <Typography className={classes.textOnMem}>
                 <strong>
                   <q>
-                    &nbsp; "Memories are treasures that remind us who we are and
-                    shape our journey.", &nbsp;
+                    &nbsp; Memories are treasures that remind us who we are and
+                    shape our journey. &nbsp;
                   </q>
                 </strong>
               </Typography>

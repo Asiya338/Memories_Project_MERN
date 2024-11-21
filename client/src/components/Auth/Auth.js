@@ -138,8 +138,6 @@ const Auth = () => {
           >
             {isSignup ? "Sign Up" : "Sign In"}
           </Button>
-          <Divider style={{ margin: "15px 0" }}></Divider>
-
           <GoogleOAuthProvider clientId={CLIENT_ID}>
             <GoogleLogin
               onSuccess={googleSuccess}

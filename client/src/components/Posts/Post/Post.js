@@ -92,7 +92,7 @@ const Post = ({ post, setCurrentId }) => {
         </div>
       )}
       <div className={`${classes.details} ${classes.hashtag}`}>
-        <Typography color="textSecondary" variant="body2">
+        <Typography color="primary" variant="body2">
           {post.tags.map((tag) => `#${tag} `)}
         </Typography>
       </div>
@@ -105,7 +105,7 @@ const Post = ({ post, setCurrentId }) => {
         {post.title}
       </Typography>
       <CardContent>
-        <Typography variant="body2" component="p" color="textSecondary">
+        <Typography variant="body2" component="p">
           {post.message}
         </Typography>
       </CardContent>

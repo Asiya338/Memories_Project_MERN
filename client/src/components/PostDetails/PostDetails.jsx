@@ -42,7 +42,7 @@ const PostDetails = () => {
   if (isLoading) {
     return (
       <Paper elevation={6} className={classes.loadingPaper}>
-        <CircularProgress size="5em" />
+        <CircularProgress size="7em" />
       </Paper>
     );
   }
@@ -113,7 +113,13 @@ const PostDetails = () => {
                     <ThumbUpAltIcon fontSize="small" />
                     &nbsp; Likes: {likes.length}
                   </Typography>
-                  <img src={selectedFile || mem2} alt="Post" width="200px" />
+                  <img
+                    className={classes.imgRecc}
+                    src={selectedFile || mem2}
+                    alt="Post"
+                    width="300px"
+                    height="250px"
+                  />
                 </div>
               )
             )}

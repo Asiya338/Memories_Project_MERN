@@ -82,16 +82,16 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       fontSize: "16px",
     },
+    color: theme.palette.type === "dark" ? "#fff" : "#000",
   },
   avatar: {
-    backgroundColor: "purple",
+    color: "white",
     "&:hover": {
       boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Shadow only at the bottom
     },
   },
   purple: {
-    color: theme.palette.getContrastText(deepPurple[500]),
-    backgroundColor: deepPurple[500],
+    backgroundColor: theme.palette.secondary.main,
   },
   logout: {
     padding: "10px 20px",

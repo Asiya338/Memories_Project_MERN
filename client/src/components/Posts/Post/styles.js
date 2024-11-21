@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-
-export default makeStyles({
+const useStyles = makeStyles((theme) => ({
   media: {
     height: 0,
     paddingTop: "56.25%",
@@ -72,4 +71,6 @@ export default makeStyles({
     color: "#1DA1F2" /* Twitter Blue */,
     cursor: "pointer",
   },
-});
+}));
+
+export default useStyles;

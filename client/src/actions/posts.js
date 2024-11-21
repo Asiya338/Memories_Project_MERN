@@ -9,6 +9,7 @@ import {
   END_LOADING,
   FETCH_POST,
   COMMENT,
+  FETCH_USER_POSTS,
 } from "../constants/actionTypes";
 
 export const getPost = (id) => async (dispatch) => {

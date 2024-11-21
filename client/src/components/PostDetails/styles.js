@@ -49,9 +49,10 @@ export default makeStyles((theme) => ({
     },
     marginBottom: "20px",
     cursor: "pointer",
-    // Center-align the content
   },
-
+  imgRecc: {
+    borderRadius: "15px",
+  },
   loadingPaper: {
     display: "flex",
     justifyContent: "center",
@@ -59,7 +60,7 @@ export default makeStyles((theme) => ({
 
     padding: "20px",
     borderRadius: "15px",
-    height: "39vh",
+    height: "59vh",
   },
   commentsOuterContainer: {
     display: "flex",

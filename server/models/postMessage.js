@@ -5,7 +5,6 @@ const postSchema = new mongoose.Schema({
   message: String,
   name: String,
   creator: String,
-
   tags: [String],
   selectedFile: String,
 

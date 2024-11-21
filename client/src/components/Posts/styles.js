@@ -9,12 +9,13 @@ export default makeStyles((theme) => ({
     textAlign: "center",
   },
   backg: {
-    backgroundColor: "#ffff",
+    background: theme.palette.type === "dark" ? "#303030" : "#F7F7F8",
     boxShadow: "0 4px 30px rgba(0, 0, 0, 0.3)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     padding: "15px",
     borderRadius: "15px",
+    color: theme.palette.type === "dark" ? "#fff" : "#000",
   },
 }));

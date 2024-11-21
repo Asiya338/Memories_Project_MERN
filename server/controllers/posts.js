@@ -10,7 +10,7 @@ export const getPosts = async (req, res) => {
     const startIndex = (Number(page) - 1) * LIMIT;
     const total = await PostMessage.countDocuments({});
     const posts = await PostMessage.find()
-      .sort({ _id: -1 })
+      .sort({ _id: -1 }) //gets latest posts
       .limit(LIMIT)
       .skip(startIndex);
     console.log(posts.length);
