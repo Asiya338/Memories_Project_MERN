@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Pagination, PaginationItem } from "@material-ui/lab";
 import { Link, useHistory } from "react-router-dom";
 import useStyles from "./styles.js";
 import { getPosts } from "../actions/posts.js";
 import { useDispatch, useSelector } from "react-redux";
-import { Paper, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 const Paginate = ({ page, sortBy }) => {
   const classes = useStyles();
   const history = useHistory();
@@ -36,7 +36,7 @@ const Paginate = ({ page, sortBy }) => {
   if (sortBy === "my-posts" && !userId) {
     return (
       <Typography variant="h6" align="center">
-        You need to be logged in to get posts that posted by you.
+        You need to be logged and create a post to get posts that posted by you.
       </Typography>
     );
   }

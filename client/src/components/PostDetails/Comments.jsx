@@ -4,7 +4,6 @@ import useStyles from "./styles.js";
 import { useDispatch } from "react-redux";
 import { commentPost } from "../../actions/posts.js";
 import CommentIcon from "@material-ui/icons/Comment";
-
 import ShareIcon from "@material-ui/icons/Share";
 
 const Comments = ({ post }) => {

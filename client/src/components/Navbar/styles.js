@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     color: "white",
     "&:hover": {
-      boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Shadow only at the bottom
+      boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
     },
   },
   purple: {

@@ -37,20 +37,19 @@ export default makeStyles((theme) => ({
 
   textField: {
     "& .MuiOutlinedInput-root textarea": {
-      // Webkit scrollbars for Chrome, Safari, and Edge
       "&::-webkit-scrollbar": {
-        width: "6px", // Set the width of the scrollbar
+        width: "6px",
       },
       "&::-webkit-scrollbar-track": {
-        background: "#f7f7f8", // Background color of the track
-        borderRadius: "10px", // Rounded corners for the track
+        background: "#f7f7f8",
+        borderRadius: "10px",
       },
       "&::-webkit-scrollbar-thumb": {
-        background: "#c1c1c1", // Color of the thumb
-        borderRadius: "10px", // Rounded corners for the thumb
+        background: "#c1c1c1",
+        borderRadius: "10px",
       },
       "&::-webkit-scrollbar-thumb:hover": {
-        background: "#a8a8a8", // Color of the thumb when hovered
+        background: "#a8a8a8",
       },
     },
   },

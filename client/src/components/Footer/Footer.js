@@ -27,13 +27,6 @@ const Footer = () => {
         align="center"
         className={classes.typography}
       >
-        Terms of Service & Privacy Policy
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        align="center"
-        className={classes.typography}
-      >
         Made with ❤️ by Asiya
       </Typography>
     </Paper>

@@ -43,20 +43,29 @@ The **Memories Project** is a full-stack MERN (MongoDB, Express, React, Node.js)
 
 2. **Navigate into the client directory:**
 
+```bash
 cd client
+```
 
 3. **Install the required dependencies:**
 
+```bash
 npm install
+```
 
 4. **Start the React app:**
 
+```bash
 node --openssl-legacy-provider node_modules/react-scripts/scripts/start.js
 (due to version changes )
+```
 
 > > This will start the frontend development server on http://localhost:3000. The app will be proxied to the backend running on http://localhost:5000.
 
-Key Features
+---
+
+**_Key Features_**
+
 Authentication: Users can sign up or log in via custom credentials or Google OAuth.
 Create Post: Users can create a new post to share their memories.
 Update Post: Users can edit their previously created posts.
@@ -64,15 +73,27 @@ Delete Post: Users can delete posts they no longer need.
 Search Posts: The app allows searching for posts based on keywords.
 Like and Comment: Users can like and comment on posts to engage with other users.
 Responsive Design: The app adjusts its layout for mobile and desktop views.
-Folder Structure
-bash
-Copy code
+
+---
+
+### Folder Structure
+
+```bash
 /client
+
 ├── /public # Static assets (e.g., images, favicon)
+
 └── /src
+
 ├── /components # React components for various parts of the UI
+
 ├── /reducers # Redux reducers
+
 ├── /actions # Redux actions
+
 ├── App.js # Main React component
+
 ├── index.js # Entry point for the app
+
 └── ...
+```

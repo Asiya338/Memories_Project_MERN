@@ -25,9 +25,7 @@ export const getPost = (id) => async (dispatch) => {
 export const getPosts = (page, sortBy, userId) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    console.log("sortby : ", sortBy);
     const { data } = await api.fetchPosts(page, sortBy, userId);
-    console.log("userId in actions : " + userId);
     dispatch({ type: FETCH_ALL, payload: data });
     dispatch({ type: END_LOADING });
   } catch (error) {
@@ -43,7 +41,6 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
     const {
       data: { data },
     } = await api.fetchPostsBySearch(searchQuery);
-    //console.log(data);
     dispatch({ type: FETCH_QUERY, payload: data });
     dispatch({ type: END_LOADING });
   } catch (error) {
@@ -98,7 +95,6 @@ export const likePost = (id) => async (dispatch) => {
 export const commentPost = (value, id) => async (dispatch) => {
   try {
     const { data } = await api.comment(value, id);
-    console.log(data);
     dispatch({ type: COMMENT, payload: data });
     return data.comments;
   } catch (error) {

@@ -20,4 +20,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-//node --openssl-legacy-provider node_modules/react-scripts/scripts/start.js
+//command to run frontend : node --openssl-legacy-provider node_modules/react-scripts/scripts/start.js

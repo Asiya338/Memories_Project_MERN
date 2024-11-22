@@ -3,9 +3,8 @@ import Slider from "react-slick";
 import { Card, CardMedia, Box, Typography } from "@material-ui/core";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import useStyles from "./styles.js"; // Assuming you have custom styles in this file
+import useStyles from "./styles.js";
 
-// Example array of image URLs with captions
 const images = [
   {
     url: "https://plus.unsplash.com/premium_photo-1697565995802-710b903501ee?w=600&auto=format&fit=crop",
@@ -96,7 +95,7 @@ const AutoSlidingImageSlider = () => {
                 className={classes.imgStyle}
                 alt={`Image ${index + 1}`}
               />
-              {/* Overlay Captions */}
+
               <Box
                 sx={{
                   position: "absolute",

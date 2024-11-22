@@ -45,7 +45,6 @@ const Home = () => {
 
   const handleSearch = () => {
     if (search.trim() || tags) {
-      //dispatch to fetch based on tags and search
       dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
       history.push(
         `/posts/search?searchquery=${search || "none"}&tags=${tags.join(",")}`
@@ -57,7 +56,6 @@ const Home = () => {
 
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
-      //enter key
       handleSearch();
     }
   };

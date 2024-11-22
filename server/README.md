@@ -35,20 +35,29 @@ The **Memories Project** backend is built using Node.js and Express. It handles 
 
 2. **Navigate into the server directory:**
 
+```bash
 cd server
+```
 
 3. **Install the required dependencies:**
 
+```bash
 npm install
+```
 
 4. **Create a .env file in the root directory and add your environment variables (e.g., MongoDB URI, JWT secret):**
 
+```bash
 MONGODB_URI=your-mongodb-uri
 JWT_SECRET=your-jwt-secret
+PORT = your-port
+```
 
 5. **Start the server:**
 
+```bash
 npm start
+```
 
 > > > This will start the backend server on http://localhost:5000.
 
@@ -59,12 +68,22 @@ Post Management: Users can create, read, update, and delete posts.
 MongoDB Integration: All data is stored in MongoDB, with schema validation using Mongoose.
 CORS Support: Cross-origin requests are allowed from the frontend.
 
-###Folder Structure###
+---
 
+### Folder Structure
+
+```bash
 /server
+
 ├── /models # Mongoose models for users and posts
+
 ├── /routes # API routes for posts and authentication
+
 ├── /controllers # Controller functions to handle the logic
+
 ├── /middleware # Custom middleware like authentication checks
+
 ├── index.js # Main entry point for the server
+
 └── .env #
+```

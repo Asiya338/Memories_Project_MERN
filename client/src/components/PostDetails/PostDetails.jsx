@@ -6,7 +6,6 @@ import {
   Typography,
   CircularProgress,
   Divider,
-  Button,
 } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { getPost, getPostsBySearch } from "../../actions/posts.js";

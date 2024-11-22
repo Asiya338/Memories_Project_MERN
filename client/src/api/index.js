@@ -12,8 +12,6 @@ API.interceptors.request.use((req) => {
 });
 export const fetchPost = (id) => API.get(`/posts/${id}`);
 
-//export const fetchPosts = (page) => API.get(`/posts?page=${page}`);
-
 export const fetchPosts = (page, sortBy, userId) =>
   API.get(
     `/posts?page=${page}&sortBy=${sortBy}${userId ? `&userId=${userId}` : ""}`

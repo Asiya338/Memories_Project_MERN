@@ -64,6 +64,6 @@ export default (state = { isLoading: true, posts: [] }, action) => {
         posts: state.posts.filter((post) => post._id !== action.payload),
       };
     default:
-      return state; // Return the current state if no matching action type
+      return state;
   }
 };

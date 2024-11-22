@@ -7,8 +7,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     padding: "16px",
     "&:hover": {
-      backgroundColor: "#ffff", // Change to a different color on hover
-      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)", // Adding shadow
+      backgroundColor: "#ffff",
+      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)",
     },
   },
   sortStyle: {
@@ -49,10 +49,10 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "rgba(0, 0, 0, 0.2)",
     },
-    backgroundSize: "cover", // Cover the entire container with the background image
-    backgroundPosition: "center", // Center the image
-    backgroundRepeat: "no-repeat", // Ensure the image does not repeat
-    color: "white", // Optional: Ensure text is visible on the background
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    color: "white",
   },
 
   textOnMem: {

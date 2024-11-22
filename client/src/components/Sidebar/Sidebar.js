@@ -1,13 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useStyles from "./styles";
-import {
-  Container,
-  Paper,
-  Typography,
-  Button,
-  Divider,
-  Avatar,
-} from "@material-ui/core";
+import { Paper, Typography, Button, Divider, Avatar } from "@material-ui/core";
 import SettingsIcon from "@material-ui/icons/Settings";
 import CloseIcon from "@material-ui/icons/Close";
 import Brightness4Icon from "@material-ui/icons/Brightness4";

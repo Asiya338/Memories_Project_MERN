@@ -31,21 +31,21 @@ export default makeStyles((theme) => ({
   },
   recommendedPosts: {
     display: "flex",
-    flexWrap: "wrap", // Ensure posts wrap as needed
-    justifyContent: "center", // Center posts in the container
-    gap: "20px", // Add spacing between items
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: "20px",
     [theme.breakpoints.up("lg")]: {
-      flexDirection: "row", // Arrange posts in rows for large screens
-      justifyContent: "space-between", // Distribute posts evenly
+      flexDirection: "row",
+      justifyContent: "space-between",
     },
     [theme.breakpoints.down("md")]: {
-      flexDirection: "column", // Stack posts for medium and smaller screens
+      flexDirection: "column",
     },
   },
   recommendedPostItem: {
-    width: "100%", // Default to full width for smaller screens
+    width: "100%",
     [theme.breakpoints.up("lg")]: {
-      width: "48%", // Set width for 2 posts per row on large screens
+      width: "48%",
     },
     marginBottom: "20px",
     cursor: "pointer",
@@ -98,14 +98,14 @@ export default makeStyles((theme) => ({
     height: "30px",
     backgroundColor: "purple",
     "&:hover": {
-      boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Shadow only at the bottom
+      boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
     },
   },
   commentsStyle: {
     backgroundColor: " #F7F7F8",
     borderRadius: "8px",
-    padding: "8px 12px", // Add some padding for the bubble effect
-    fontSize: "0.875rem", // Slightly smaller text
+    padding: "8px 12px",
+    fontSize: "0.875rem",
     color: "#333",
   },
   writeComment: {
@@ -118,20 +118,19 @@ export default makeStyles((theme) => ({
   },
   textField: {
     "& .MuiOutlinedInput-root textarea": {
-      // Webkit scrollbars for Chrome, Safari, and Edge
       "&::-webkit-scrollbar": {
-        width: "6px", // Set the width of the scrollbar
+        width: "6px",
       },
       "&::-webkit-scrollbar-track": {
-        background: "#f7f7f8", // Background color of the track
-        borderRadius: "10px", // Rounded corners for the track
+        background: "#f7f7f8",
+        borderRadius: "10px",
       },
       "&::-webkit-scrollbar-thumb": {
-        background: "#c1c1c1", // Color of the thumb
-        borderRadius: "10px", // Rounded corners for the thumb
+        background: "#c1c1c1",
+        borderRadius: "10px",
       },
       "&::-webkit-scrollbar-thumb:hover": {
-        background: "#a8a8a8", // Color of the thumb when hovered
+        background: "#a8a8a8",
       },
     },
   },
