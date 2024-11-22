@@ -126,7 +126,9 @@ const Home = () => {
                   <option value="latest">Latest(default)</option>
                   <option value="id-asc">Oldest</option>
                   <option value="alphabetical">A-Z</option>
-                  <option value="aplha-reverse">Z-A</option>
+                  <option value="alpha-reverse">Z-A</option>
+                  <option value="liked">Liked by Me</option>
+                  <option value="my-posts">Posted by Me</option>
                 </select>
               </Button>
             </AppBar>

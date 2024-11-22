@@ -14,8 +14,10 @@ export const fetchPost = (id) => API.get(`/posts/${id}`);
 
 //export const fetchPosts = (page) => API.get(`/posts?page=${page}`);
 
-export const fetchPosts = (page, sortBy) =>
-  API.get(`/posts?page=${page}&sortBy=${sortBy}`);
+export const fetchPosts = (page, sortBy, userId) =>
+  API.get(
+    `/posts?page=${page}&sortBy=${sortBy}${userId ? `&userId=${userId}` : ""}`
+  );
 
 export const fetchPostsBySearch = (searchQuery) =>
   API.get(

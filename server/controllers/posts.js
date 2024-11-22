@@ -3,27 +3,44 @@ import PostMessage from "../models/postMessage.js";
 
 // To fetch posts
 export const getPosts = async (req, res) => {
-  const { page, sortBy } = req.query;
+  const { page, sortBy, userId } = req.query;
 
   try {
     const LIMIT = 8;
     let sortOption = {};
+    let total;
+    let posts;
     if (sortBy === "id-asc") {
       sortOption = { _id: 1 };
     } else if (sortBy === "alphabetical") {
       sortOption = { title: 1 };
-    } else if (sortBy === "aplha-reverse") {
+    } else if (sortBy === "alpha-reverse") {
       sortOption = { title: -1 };
     } else {
       sortOption = { _id: -1 };
     }
     const startIndex = (Number(page) - 1) * LIMIT;
-    const total = await PostMessage.countDocuments({});
-    const posts = await PostMessage.find()
+    total = await PostMessage.countDocuments({});
+    posts = await PostMessage.find({})
       .sort(sortOption)
       .limit(LIMIT)
       .skip(startIndex);
-    console.log(posts.length);
+
+    if (sortBy === "liked" && userId) {
+      total = await PostMessage.countDocuments({ likes: { $in: [userId] } });
+      posts = await PostMessage.find({ likes: { $in: [userId] } })
+        .sort(sortOption)
+        .limit(LIMIT)
+        .skip(startIndex);
+    }
+
+    if (sortBy === "my-posts" && userId) {
+      total = await PostMessage.countDocuments({ creator: [userId] });
+      posts = await PostMessage.find({ creator: [userId] })
+        .sort(sortOption)
+        .limit(LIMIT)
+        .skip(startIndex);
+    }
     res.status(200).json({
       data: posts,
       currentPage: Number(page),

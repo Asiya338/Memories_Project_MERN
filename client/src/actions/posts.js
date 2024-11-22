@@ -9,14 +9,12 @@ import {
   END_LOADING,
   FETCH_POST,
   COMMENT,
-  FETCH_USER_POSTS,
 } from "../constants/actionTypes";
 
 export const getPost = (id) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
     const { data } = await api.fetchPost(id);
-    // console.log(data);
     dispatch({ type: FETCH_POST, payload: data });
     dispatch({ type: END_LOADING });
   } catch (error) {
@@ -24,10 +22,12 @@ export const getPost = (id) => async (dispatch) => {
   }
 };
 // Action creator using redux-thunk
-export const getPosts = (page, sortBy) => async (dispatch) => {
+export const getPosts = (page, sortBy, userId) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const { data } = await api.fetchPosts(page, sortBy);
+    console.log("sortby : ", sortBy);
+    const { data } = await api.fetchPosts(page, sortBy, userId);
+    console.log("userId in actions : " + userId);
     dispatch({ type: FETCH_ALL, payload: data });
     dispatch({ type: END_LOADING });
   } catch (error) {
