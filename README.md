@@ -2,7 +2,7 @@
 
 The **Memories Project** is a full-stack **MERN (MongoDB, Express, React, Node.js)** application that allows users to create, update, delete, and interact with posts. This project is fully responsive and offers a variety of features to create and share memories.
 
-[![Memories](https://i.postimg.cc/XvtN98WX/Screenshot-3.png)](https://postimg.cc/8FBVSLjV)
+# [![Memories](https://i.postimg.cc/XvtN98WX/Screenshot-3.png)](https://postimg.cc/8FBVSLjV)
 
 ## **Features**
 
