@@ -1,28 +1,65 @@
 import React, { useState, useEffect } from "react";
 import memories from "../../images/memories.png";
 import useStyles from "./styles.js";
-import CustomNav from "./CustomNav.js";
-import GoogleNav from "./GoogleNav.js";
 import { useDispatch } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
-import { AppBar, Typography } from "@material-ui/core";
+import { Link, useHistory, useLocation } from "react-router-dom";
+import { AppBar, Typography, Avatar, Toolbar, Button } from "@material-ui/core";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import Sidebar from "../Sidebar/Sidebar.js";
+import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
+import { ThemeProvider, CssBaseline, createMuiTheme } from "@material-ui/core";
+import jwtDecode from "jwt-decode";
+
 const Navbar = () => {
+  let data = null;
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
+  // handle sidebar toggle
+  const handleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  // to toggle between light and dark themes
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setIsDarkMode(true);
+    }
+  }, []);
+
+  if (!user?.result?._id) {
+    try {
+      data = jwtDecode(user?.result); // Assuming "result" contains the user profile
+    } catch (error) {
+      console.error("Error decoding user data:", error);
+      data = user?.result;
+    }
+  }
+
+  // to logout user
   const logout = () => {
-    dispatch({ type: "LOGOUT" });
-    history.push("/");
-    setUser(null);
+    // eslint-disable-next-line no-restricted-globals
+    const confirmation = confirm(
+      `${data.name}, are you sure you want to logout?`
+    );
+    if (confirmation) {
+      dispatch({ type: "LOGOUT" });
+      history.push("/");
+      setUser(null);
+    }
   };
 
   useEffect(() => {
     const profile = JSON.parse(localStorage.getItem("profile"));
-    /*  if (user) {
+    /* if (user) {
       const token = user.token;
-      const decodedToken = jwt_decode(token);
+      const decodedToken = jwtDecode(token);
       if (decodedToken.exp * 1000 < Date.now()) {
         logout();
       }
@@ -30,28 +67,108 @@ const Navbar = () => {
       console.log("User not found");
     } */
     setUser(profile);
-  }, []);
+  }, [location]);
+
+  //to set theme
+  const theme = createMuiTheme({
+    palette: {
+      type: isDarkMode ? "dark" : "light",
+    },
+  });
+
+  // to store in localstorage
+
+  const toggleTheme = () => {
+    setIsDarkMode((prev) => {
+      const newTheme = !prev;
+      localStorage.setItem("theme", newTheme ? "dark" : "light");
+      return newTheme;
+    });
+  };
 
   return (
-    <AppBar position="static" color="inherit" className={classes.appBar}>
-      <div className={classes.brandContainer}>
-        <Typography
-          variant="h2"
-          className={classes.heading}
-          component={Link}
-          to="/"
-        >
-          MEMORIES
-        </Typography>
-        <img
-          src={memories}
-          alt="memories img"
-          height="60"
-          className={classes.image}
-        />
-      </div>
-      {user?.result?._id ? <CustomNav /> : <GoogleNav />}
-    </AppBar>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AppBar position="static" color="inherit" className={classes.appBar}>
+        <div className={classes.brandContainer}>
+          <Typography
+            variant="h2"
+            className={classes.heading}
+            component={Link}
+            to="/"
+          >
+            MEMORIES
+          </Typography>
+          <img
+            src={memories}
+            alt="memories img"
+            height="60"
+            className={classes.image}
+          />
+        </div>
+
+        <Toolbar className={classes.toolbar}>
+          {user?.result ? (
+            <div className={classes.profile}>
+              <Avatar
+                className={`${classes.avatar} ${classes.purple}`}
+                alt={data?.given_name}
+                src={data?.picture}
+              >
+                {user?.result?._id && user?.result?.name?.charAt(0)}
+              </Avatar>
+              <Typography className={classes.userName} variant="h6">
+                {user?.result?._id ? user?.result?.name : data?.given_name}
+              </Typography>
+
+              <button
+                onClick={handleSidebar}
+                style={{
+                  border: "none",
+                  background: "transparent",
+
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  fontSize: "1.2rem",
+                }}
+              >
+                {isSidebarOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+              </button>
+
+              {/* Sidebar Component */}
+              {isSidebarOpen && (
+                <Sidebar
+                  onClose={handleSidebar}
+                  toggleTheme={toggleTheme}
+                  isDarkMode={isDarkMode}
+                />
+              )}
+
+              <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                className={classes.logout}
+                onClick={logout}
+              >
+                Logout
+              </Button>
+            </div>
+          ) : (
+            <Button
+              component={Link}
+              to="/auth"
+              variant="contained"
+              color="secondary"
+              style={{ padding: "10px 20px", fontWeight: "bold" }}
+            >
+              Sign in
+            </Button>
+          )}
+        </Toolbar>
+      </AppBar>
+    </ThemeProvider>
   );
 };
 

@@ -7,6 +7,8 @@ export default makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    background: "#ffff",
+    color: "black",
     padding: theme.spacing(2),
 
     "&:hover": {

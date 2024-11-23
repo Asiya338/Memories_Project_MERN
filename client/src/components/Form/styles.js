@@ -8,6 +8,7 @@ export default makeStyles((theme) => ({
   },
 
   paper: {
+    background: "#F7F7F8",
     padding: theme.spacing(2),
     borderRadius: "4px",
     transition: "background-color 0.3s ease, box-shadow 0.3s ease",
@@ -15,7 +16,7 @@ export default makeStyles((theme) => ({
       fontSize: "1rem", // Extra-small screens
       margin: "20px 0px",
     },
-
+    color: "black",
     "&:hover": {
       backgroundColor: "#ffff", // Change to a different color on hover
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)", // Adding shadow

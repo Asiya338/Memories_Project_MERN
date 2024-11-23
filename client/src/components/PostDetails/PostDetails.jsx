@@ -71,10 +71,10 @@ const PostDetails = () => {
           <Typography variant="body1">
             {moment(post.createdAt).fromNow()}
           </Typography>
-          <Divider style={{ margin: "20px 0" }} />
+          <Divider style={{ margin: "20px 0", color: "#f7f7f8" }} />
 
           <Comments post={post} />
-          <Divider style={{ margin: "20px 0" }} />
+          <Divider style={{ margin: "20px 0", color: "#f7f7f8" }} />
         </div>
         <div className={classes.imageSection}>
           <img
@@ -90,7 +90,7 @@ const PostDetails = () => {
           <Typography variant="h5" gutterBottom>
             You might also like:{" "}
           </Typography>
-          <Divider style={{ margin: "20px 0" }} />
+          <Divider style={{ margin: "20px 0", color: "#f7f7f8" }} />
           <div className={classes.recommendedPosts}>
             {recommendedPosts.map(
               ({ title, message, selectedFile, name, likes, _id }) => (

@@ -4,7 +4,7 @@ import PostMessage from "../models/postMessage.js";
 // To fetch posts
 export const getPosts = async (req, res) => {
   const { page, sortBy, userId } = req.query;
-
+  //console.log("userid : ", userId);
   try {
     const LIMIT = 8;
     let sortOption = {};

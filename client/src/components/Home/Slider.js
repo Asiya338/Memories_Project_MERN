@@ -83,11 +83,14 @@ const AutoSlidingImageSlider = () => {
               position: "relative",
               borderRadius: "18px",
               overflow: "hidden",
-              backgroundColor: "#fff",
+              background: "#fff",
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
             }}
           >
-            <Card sx={{ width: "100%", overflow: "hidden" }}>
+            <Card
+              sx={{ width: "100%", overflow: "hidden" }}
+              className={classes.boxContainer}
+            >
               <CardMedia
                 component="img"
                 height="300"

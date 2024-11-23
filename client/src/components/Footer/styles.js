@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(4),
+    backgroundColor: " #FFFF",
     borderRadius: "15px",
     transition: "background-color 0.3s ease, box-shadow 0.3s ease",
     padding: "8px  30px",

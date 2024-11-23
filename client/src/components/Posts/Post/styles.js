@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
   },
   card: {
+    backgroundColor: "#ffffff",
+    color: "black",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
@@ -24,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     height: "500px",
     position: "relative",
     "&:hover": {
-      backgroundColor: "#ffff",
+      background: "#ffffffff",
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
     },
   },

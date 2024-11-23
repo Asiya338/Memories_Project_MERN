@@ -7,7 +7,6 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     width: "400px",
     height: "100vh",
-    background: theme.palette.type === "dark" ? "#303030" : "#F7F7F8",
     boxShadow: "2px 0 5px rgba(0, 0, 0, 0.3)",
     padding: "20px",
     zIndex: 1000,

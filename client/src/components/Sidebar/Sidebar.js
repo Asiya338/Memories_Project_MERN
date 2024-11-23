@@ -6,13 +6,27 @@ import CloseIcon from "@material-ui/icons/Close";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import Brightness7Icon from "@material-ui/icons/Brightness7";
 import EmailIcon from "@material-ui/icons/Email";
+import jwtDecode from "jwt-decode";
 
 const Sidebar = ({ onClose, toggleTheme, isDarkMode }) => {
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem("profile"));
+  let data;
 
+  // Handle case where user is not logged in
   if (!user) {
     return null;
+  }
+
+  // Check if user.result is a token or an object
+  if (user?.result && typeof user.result === "string") {
+    try {
+      data = jwtDecode(user.result); // Decode token only if it's a string
+    } catch (error) {
+      console.error("Failed to decode JWT:", error);
+    }
+  } else {
+    data = user?.result; // Assume user.result is already an object
   }
 
   return (
@@ -26,7 +40,7 @@ const Sidebar = ({ onClose, toggleTheme, isDarkMode }) => {
       </Button>
 
       <Typography variant="h6" className={classes.userName}>
-        Hi , {user?.result?.name}
+        Hi, {data?.name || data?.given_name || "User"}
         <br />
         Welcome to Memories World
       </Typography>
@@ -35,19 +49,19 @@ const Sidebar = ({ onClose, toggleTheme, isDarkMode }) => {
       <div className={classes.theme}>
         <Avatar
           className={classes.avatar}
-          alt={user?.result?.name}
-          src={user?.result?.picture}
+          alt={data?.given_name || data?.name || "User"}
+          src={data?.picture}
         >
-          {user?.result?.name?.charAt(0)}
+          {data?.name?.charAt(0) || data?.given_name?.charAt(0) || "U"}
         </Avatar>
         <Typography className={classes.userName} variant="h6">
-          {user?.result?.name}
+          {data?.name || data?.given_name || "User"}
         </Typography>
       </div>
       <div className={classes.theme}>
         <EmailIcon className={classes.settings} />
         <Typography className={classes.userName} variant="h6">
-          {user?.result?.email}
+          {data?.email || "No Email Available"}
         </Typography>
       </div>
       <Divider style={{ margin: "20px 0" }} />

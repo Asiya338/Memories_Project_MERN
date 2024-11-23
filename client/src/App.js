@@ -6,10 +6,9 @@ import Home from "./components/Home/Home.js";
 import PostDetails from "./components/PostDetails/PostDetails.jsx";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Auth from "./components/Auth/Auth.js";
-import useStyles from "./styles";
+
 const App = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
-  const classes = useStyles();
   return (
     <BrowserRouter>
       <Container maxWidth="xl">

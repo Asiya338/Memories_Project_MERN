@@ -6,6 +6,7 @@ export default makeStyles((theme) => ({
     objectFit: "cover",
     width: "100%",
     maxHeight: "500px",
+    background: "#f7f7f8",
   },
   card: {
     display: "flex",
@@ -34,6 +35,7 @@ export default makeStyles((theme) => ({
     flexWrap: "wrap",
     justifyContent: "center",
     gap: "20px",
+
     [theme.breakpoints.up("lg")]: {
       flexDirection: "row",
       justifyContent: "space-between",
@@ -74,6 +76,7 @@ export default makeStyles((theme) => ({
     overflowY: "auto",
     marginRight: "30px",
     width: "50%",
+
     [theme.breakpoints.down("sm")]: {
       marginRight: "10px",
       width: "100%",
@@ -102,7 +105,7 @@ export default makeStyles((theme) => ({
     },
   },
   commentsStyle: {
-    backgroundColor: " #F7F7F8",
+    backgroundColor: " #f7f7f8",
     borderRadius: "8px",
     padding: "8px 12px",
     fontSize: "0.875rem",
@@ -110,6 +113,7 @@ export default makeStyles((theme) => ({
   },
   writeComment: {
     width: "45%",
+
     [theme.breakpoints.down("sm")]: {
       marginRight: "10px",
       width: "100%",
@@ -117,6 +121,8 @@ export default makeStyles((theme) => ({
     },
   },
   textField: {
+    backgroundColor: " #FFFF",
+
     "& .MuiOutlinedInput-root textarea": {
       "&::-webkit-scrollbar": {
         width: "6px",

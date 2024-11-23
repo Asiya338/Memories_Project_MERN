@@ -109,9 +109,9 @@ const Comments = ({ post }) => {
             />
 
             <Button
+              style={{ color: "white", marginTop: "10px" }}
               variant="contained"
               onClick={handleClick}
-              style={{ marginTop: "10px" }}
               fullWidth
               disabled={!comment}
               color="primary"

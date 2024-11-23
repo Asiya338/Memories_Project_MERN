@@ -5,6 +5,7 @@ import useStyles from "./styles.js";
 import { getPosts } from "../actions/posts.js";
 import { useDispatch, useSelector } from "react-redux";
 import { Typography } from "@material-ui/core";
+
 const Paginate = ({ page, sortBy }) => {
   const classes = useStyles();
   const history = useHistory();

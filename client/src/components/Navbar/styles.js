@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     transition: "background-color 0.3s ease, box-shadow 0.3s ease",
+    background: "#ffffff",
     padding: "8px  30px",
     "&:hover": {
       backgroundColor: "#ffff",

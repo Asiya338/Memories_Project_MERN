@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "1rem",
     display: "flex",
     padding: "16px",
+    background: "#F7F7F8",
     "&:hover": {
       backgroundColor: "#ffff",
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)",
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 4,
     marginTop: "1rem",
     padding: "16px",
+    background: "#F7F7F8",
     "&:hover": {
       backgroundColor: "#ffff", // Change to a different color on hover
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)", // Adding shadow
@@ -62,6 +64,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "20px",
     margin: "20px 20px",
     width: "400px",
+  },
+  boxContainer: {
+    background: "#F7F7F8",
   },
 }));
 
