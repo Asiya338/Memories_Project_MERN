@@ -45,9 +45,7 @@ const Navbar = () => {
   // to logout user
   const logout = () => {
     // eslint-disable-next-line no-restricted-globals
-    const confirmation = confirm(
-      `${data.name}, are you sure you want to logout?`
-    );
+    const confirmation = confirm(`Are you sure you want to logout?`);
     if (confirmation) {
       dispatch({ type: "LOGOUT" });
       history.push("/");
