@@ -22,7 +22,7 @@ app.use("/user", userRoutes);
 //mongoose connection => MongoDB Atlas
 
 const MONGODB_URL = process.env.MONGODB_URL;
-const PORT = 5000;
+const PORT = process.env.PORT || 4000;
 
 mongoose
   .connect(MONGODB_URL)
@@ -34,5 +34,3 @@ mongoose
   .catch((error) => {
     console.log("error connecting to MongoDB : ", error);
   });
-
-//mongoose.set('useFindAndModify', false);

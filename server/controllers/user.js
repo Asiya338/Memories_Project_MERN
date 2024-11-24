@@ -1,9 +1,11 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+dotenv.config();
 
 import User from "../models/user.js";
 
 export const signin = async (req, res) => {
+  const JWT_SECRET = process.env.JWT_SECRET_KEY;
   const { email, password } = req.body;
   try {
     const existingUser = await User.findOne({ email: email });
@@ -21,7 +23,7 @@ export const signin = async (req, res) => {
 
     const token = jwt.sign(
       { email: existingUser.email, id: existingUser._id },
-      "tested",
+      JWT_SECRET,
       { expiresIn: "2h" }
     );
 
@@ -33,6 +35,8 @@ export const signin = async (req, res) => {
 };
 
 export const signup = async (req, res) => {
+  const JWT_SECRET = process.env.JWT_SECRET_KEY;
+
   const { email, password, confirmPassword, firstName, lastName } = req.body;
   try {
     const existingUser = await User.findOne({ email });
@@ -50,7 +54,7 @@ export const signup = async (req, res) => {
     });
     const token = await jwt.sign(
       { email: result.email, id: result._id },
-      "tested",
+      JWT_SECRET,
       { expiresIn: "2h" }
     );
 

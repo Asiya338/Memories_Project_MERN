@@ -1,6 +1,8 @@
 import jwt from "jsonwebtoken";
+dotenv.config();
 
 const auth = async (req, res, next) => {
+  const JWT_SECRET = process.env.JWT_SECRET_KEY;
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader) {
@@ -15,7 +17,7 @@ const auth = async (req, res, next) => {
     let decodedData;
     if (token && isCustomToken) {
       try {
-        decodedData = jwt.verify(token, "tested"); // Throws an error if expired
+        decodedData = jwt.verify(token, JWT_SECRET); // Throws an error if expired
         req.userId = decodedData?.id;
       } catch (err) {
         if (err.name === "TokenExpiredError") {
