@@ -49,7 +49,7 @@ The **Memories Project** is a full-stack **MERN (MongoDB, Express, React, Node.j
 ### **Clone the Repository**
 
 ```bash
-git clone https://github.com/Asiya338/Memories_MERN_Project.git
+git clone https://github.com/Asiya338/Memories_Project_MERN.git
 ```
 
 ### **Navigate into the Client Directory**
