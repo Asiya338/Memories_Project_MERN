@@ -21,12 +21,30 @@ const Sidebar = ({ onClose, toggleTheme, isDarkMode }) => {
   // Check if user.result is a token or an object
   if (user?.result && typeof user.result === "string") {
     try {
-      data = jwtDecode(user.result); // Decode token only if it's a string
+      data = jwtDecode(user?.result); // Decode token only if it's a string
     } catch (error) {
       console.error("Failed to decode JWT:", error);
+      data = null;
     }
   } else {
     data = user?.result; // Assume user.result is already an object
+  }
+
+  if (!data) {
+    return (
+      <Paper elevation={6}>
+        <Button
+          onClick={onClose}
+          color="secondary"
+          className={classes.buttonStyles}
+        >
+          <CloseIcon className={classes.iconStyles} />
+        </Button>
+        <Typography variant="h6" align="center">
+          No user data found. Please log in.
+        </Typography>
+      </Paper>
+    );
   }
 
   return (
@@ -45,7 +63,6 @@ const Sidebar = ({ onClose, toggleTheme, isDarkMode }) => {
         Welcome to Memories World
       </Typography>
 
-      <Divider style={{ margin: "20px 0" }} />
       <div className={classes.theme}>
         <Avatar
           className={classes.avatar}
@@ -57,29 +74,30 @@ const Sidebar = ({ onClose, toggleTheme, isDarkMode }) => {
         <Typography className={classes.userName} variant="h6">
           {data?.name || data?.given_name || "User"}
         </Typography>
-      </div>
-      <div className={classes.theme}>
+        {/* </div>
+      <div className={classes.theme}> */}
         <EmailIcon className={classes.settings} />
         <Typography className={classes.userName} variant="h6">
           {data?.email || "No Email Available"}
         </Typography>
       </div>
-      <Divider style={{ margin: "20px 0" }} />
+
       <div className={classes.theme}>
         <SettingsIcon className={classes.settings} />
         <Typography className={classes.userName} variant="h6">
           Theme Settings
         </Typography>
+
+        <Button
+          className={classes.buttonStyles}
+          variant="contained"
+          color="secondary"
+          onClick={toggleTheme}
+          startIcon={isDarkMode ? <Brightness4Icon /> : <Brightness7Icon />}
+        >
+          {isDarkMode ? "light-mode" : "dark-mode"}
+        </Button>
       </div>
-      <Divider style={{ margin: "20px 0" }} />
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={toggleTheme}
-        startIcon={isDarkMode ? <Brightness4Icon /> : <Brightness7Icon />}
-      >
-        {isDarkMode ? "light-mode" : "dark-mode"}
-      </Button>
     </Paper>
   );
 };

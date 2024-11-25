@@ -6,7 +6,7 @@ import { commentPost } from "../../actions/posts.js";
 import CommentIcon from "@material-ui/icons/Comment";
 import ShareIcon from "@material-ui/icons/Share";
 
-const Comments = ({ post }) => {
+const Comments = ({ post, onCommentAdded }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [comments, setComments] = useState(post?.comments);
@@ -14,13 +14,17 @@ const Comments = ({ post }) => {
   const [comment, setComment] = useState("");
 
   const user = JSON.parse(localStorage.getItem("profile"));
+
   const handleClick = async () => {
     const finalComment = `${user?.result?.name} : ${comment}`;
     const newComments = await dispatch(commentPost(finalComment, post._id));
     setComments(newComments);
     setComment("");
     commentsRef.current.scrollIntoView({ behavior: "smooth" });
+
+    onCommentAdded();
   };
+
   const handleShare = () => {
     const postUrl = `${window.location.origin}/posts/${post._id}`;
 
@@ -98,8 +102,7 @@ const Comments = ({ post }) => {
             </Typography>
             <TextField
               fullWidth
-              minRows={8}
-              maxRows={8}
+              rows={6}
               variant="outlined"
               label="Comment"
               value={comment}

@@ -1,10 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { deepPurple } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     borderRadius: 15,
-    margin: "30px 0",
+    margin: "30px 5px",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -45,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "2.5rem", // Small screens
     },
     "@media (max-width: 400px)": {
-      fontSize: "2rem", // Extra-small screens
+      fontSize: "1.8rem", // Extra-small screens
     },
   },
 
@@ -64,41 +63,42 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     display: "flex",
-    width: "400px",
+    width: "500px",
     justifyContent: "flex-end",
     [theme.breakpoints.down("sm")]: {
       justifyContent: "flex-end",
-      width: "300px",
+      width: "80%",
       padding: "0px  0px",
     },
   },
   profile: {
     display: "flex",
+    flexGrow: 1,
     justifyContent: "space-between",
-    width: "400px",
+    maxWidth: "100%",
+    width: "fit-content",
   },
   userName: {
     display: "flex",
     alignItems: "center",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "16px",
+      fontSize: "15px",
     },
-    color: theme.palette.type === "dark" ? "#fff" : "#000",
+    color: "black",
   },
   avatar: {
     color: "white",
+    background: "purple",
     "&:hover": {
       boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
     },
   },
-  purple: {
-    backgroundColor: theme.palette.secondary.main,
-  },
+
   logout: {
-    padding: "10px 20px",
-    fontWeight: "bold",
+    padding: "10px 12px",
+    fontSize: "12px",
     [theme.breakpoints.down("sm")]: {
-      padding: "6px  10px",
+      padding: "3px  6px",
     },
   },
 }));

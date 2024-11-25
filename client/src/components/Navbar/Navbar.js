@@ -119,7 +119,7 @@ const Navbar = () => {
           {user?.result ? (
             <div className={classes.profile}>
               <Avatar
-                className={`${classes.avatar} ${classes.purple}`}
+                className={classes.avatar}
                 alt={data?.given_name}
                 src={data?.picture}
               >

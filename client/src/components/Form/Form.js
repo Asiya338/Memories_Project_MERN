@@ -89,8 +89,7 @@ const Form = ({ currentId, setCurrentId }) => {
           label="Memory"
           fullWidth
           multiline
-          minRows={4}
-          maxRows={4}
+          rows={6} // Minimum rows
           className={classes.textField}
           value={postData.message}
           onChange={(e) => {

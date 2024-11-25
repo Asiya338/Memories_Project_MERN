@@ -6,7 +6,6 @@ import {
   Grid,
   Avatar,
   Paper,
-  Divider,
 } from "@material-ui/core";
 import useStyles from "./styles.js";
 import Input from "./Input.js";
@@ -16,8 +15,7 @@ import { useHistory } from "react-router-dom";
 import LockOutlinedIcon from "@material-ui/icons/LockOpenOutlined";
 import { useDispatch } from "react-redux";
 const Auth = () => {
-  const CLIENT_ID = process.env.REACT_APP_CLIENT_ID || " ";
-  console.log(CLIENT_ID);
+  const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
   const initialState = {
     firstName: "",
     lastName: "",
@@ -43,7 +41,7 @@ const Auth = () => {
       alert("Login successful");
     } catch (error) {
       console.error(error);
-      alert("Login failed");
+      alert("Google login failed. Please try again.");
     }
   };
 
@@ -146,7 +144,7 @@ const Auth = () => {
             />
           </GoogleOAuthProvider>
 
-          <Grid container justifyContent="center">
+          <Grid container justifycontent="center">
             <Grid item>
               {isSignup ? (
                 <>

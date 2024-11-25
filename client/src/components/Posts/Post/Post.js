@@ -87,7 +87,7 @@ const Post = ({ post, setCurrentId }) => {
             //  varient="contained"
             onClick={() => setCurrentId(post._id)}
           >
-            <MoreHorizIcon fontSize="medium"> </MoreHorizIcon>
+            <MoreHorizIcon fontSize="large"> </MoreHorizIcon>
           </Button>
         </div>
       )}

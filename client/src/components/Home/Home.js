@@ -69,7 +69,6 @@ const Home = () => {
         <Grid
           container
           alignItems="stretch"
-          justifyContent="space-between"
           spacing={4}
           className={`${classes.dir} ${classes.gridContainer}`}
         >

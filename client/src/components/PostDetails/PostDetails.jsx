@@ -32,7 +32,15 @@ const PostDetails = () => {
         getPostsBySearch({ search: "none", tags: post?.tags.join(",") })
       );
     }
-  }, [post, dispatch]);
+  }, [post?.tags, dispatch]);
+
+  const onCommentAdded = () => {
+    if (post) {
+      dispatch(
+        getPostsBySearch({ search: "none", tags: post?.tags.join(",") })
+      );
+    }
+  };
 
   if (!post) {
     return null;
@@ -73,7 +81,8 @@ const PostDetails = () => {
           </Typography>
           <Divider style={{ margin: "20px 0", color: "#f7f7f8" }} />
 
-          <Comments post={post} />
+          <Comments post={post} onCommentAdded={onCommentAdded} />
+
           <Divider style={{ margin: "20px 0", color: "#f7f7f8" }} />
         </div>
         <div className={classes.imageSection}>

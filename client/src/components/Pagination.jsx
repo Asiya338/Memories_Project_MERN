@@ -24,7 +24,7 @@ const Paginate = ({ page, sortBy }) => {
         }`
       );
     }
-  }, [page, sortBy, userId]);
+  }, [page, sortBy, userId, dispatch, history]);
 
   if (sortBy === "liked" && !userId) {
     return (

@@ -4,6 +4,7 @@ const useStyles = makeStyles((theme) => ({
   appBarSearch: {
     borderRadius: 4,
     marginBottom: "1rem",
+    marginTop: "1rem",
     display: "flex",
     padding: "16px",
     background: "#F7F7F8",
@@ -33,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   gridContainer: {
+    justifyContent: "space-between",
+    position: "relative",
+    zIndex: 1,
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column-reverse",
     },
