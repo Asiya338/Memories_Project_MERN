@@ -4,7 +4,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const auth = async (req, res, next) => {
-  const JWT_SECRET = process.env.JWT_SECRET_KEY;
+  const JWT_SECRET = process.env.JWT_SECRET_KEY || "test";
+
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader) {

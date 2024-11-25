@@ -55,16 +55,26 @@ const Navbar = () => {
 
   useEffect(() => {
     const profile = JSON.parse(localStorage.getItem("profile"));
-    /* if (user) {
-      const token = user.token;
-      const decodedToken = jwtDecode(token);
-      if (decodedToken.exp * 1000 < Date.now()) {
-        logout();
+    if (profile?.token) {
+      try {
+        const token = profile.token;
+
+        // Decode the token only if it's valid
+        const decodedToken = jwtDecode(token);
+
+        // Check if token is expired
+        if (decodedToken.exp * 1000 < Date.now()) {
+          logout();
+        } else {
+          setUser(profile);
+        }
+      } catch (error) {
+        console.error("Error decoding token in Navbar :", error.message);
+        logout(); // Logout user if the token is invalid
       }
     } else {
-      console.log("User not found");
-    } */
-    setUser(profile);
+      console.log("No token found in localStorage.");
+    }
   }, [location]);
 
   //to set theme

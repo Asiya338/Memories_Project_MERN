@@ -1,5 +1,4 @@
 import express from "express";
-
 import mongoose from "mongoose";
 import cors from "cors";
 import postRoutes from "./routes/posts.js";
@@ -10,12 +9,7 @@ dotenv.config();
 
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
-app.use(
-  cors({
-    origin: "http://localhost:3000", //  specific client URL
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use("/posts", postRoutes); //localhost:5000/posts
 app.use("/user", userRoutes);

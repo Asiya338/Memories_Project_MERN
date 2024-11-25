@@ -1,10 +1,9 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import User from "../models/user.js";
 
 dotenv.config();
-
-import User from "../models/user.js";
 
 export const signin = async (req, res) => {
   const JWT_SECRET = process.env.JWT_SECRET_KEY;
