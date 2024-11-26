@@ -32,7 +32,7 @@ const PostDetails = () => {
         getPostsBySearch({ search: "none", tags: post?.tags.join(",") })
       );
     }
-  }, [post?.tags, dispatch]);
+  }, [post, dispatch]);
 
   const onCommentAdded = () => {
     if (post) {
@@ -125,8 +125,6 @@ const PostDetails = () => {
                     className={classes.imgRecc}
                     src={selectedFile || mem2}
                     alt="Post"
-                    width="300px"
-                    height="250px"
                   />
                 </div>
               )

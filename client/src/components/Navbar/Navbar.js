@@ -107,12 +107,7 @@ const Navbar = () => {
           >
             MEMORIES
           </Typography>
-          <img
-            src={memories}
-            alt="memories img"
-            height="60"
-            className={classes.image}
-          />
+          <img src={memories} alt="memories img" className={classes.image} />
         </div>
 
         <Toolbar className={classes.toolbar}>
@@ -169,7 +164,7 @@ const Navbar = () => {
               to="/auth"
               variant="contained"
               color="secondary"
-              style={{ padding: "10px 20px", fontWeight: "bold" }}
+              className={classes.logout}
             >
               Sign in
             </Button>

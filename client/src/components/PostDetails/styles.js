@@ -54,6 +54,13 @@ export default makeStyles((theme) => ({
   },
   imgRecc: {
     borderRadius: "15px",
+    width: "350px",
+    height: "350px",
+    [theme.breakpoints.down("sm")]: {
+      borderRadius: "10px",
+      width: "240px",
+      height: "200px",
+    },
   },
   loadingPaper: {
     display: "flex",

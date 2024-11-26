@@ -41,10 +41,10 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "3rem", // Medium screens
     },
     "@media (max-width: 600px)": {
-      fontSize: "2.5rem", // Small screens
+      fontSize: "2rem", // Small screens
     },
     "@media (max-width: 400px)": {
-      fontSize: "1.8rem", // Extra-small screens
+      fontSize: "1.2rem", // Extra-small screens
     },
   },
 
@@ -56,6 +56,12 @@ const useStyles = makeStyles((theme) => ({
 
   image: {
     marginLeft: "15px",
+    height: "50px",
+    width: "50px",
+    [theme.breakpoints.down("sm")]: {
+      width: "30px",
+      height: "30px",
+    },
   },
   brandContainer: {
     display: "flex",
@@ -92,6 +98,10 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
     },
+    [theme.breakpoints.down("sm")]: {
+      width: theme.spacing(4),
+      height: theme.spacing(4),
+    },
   },
 
   logout: {
@@ -99,6 +109,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "12px",
     [theme.breakpoints.down("sm")]: {
       padding: "3px  6px",
+      fontSize: "9px",
     },
   },
 }));
