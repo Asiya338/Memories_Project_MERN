@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "",
+  baseURL: "https://memories-mern-backend-eghl.onrender.com",
 });
 
 API.interceptors.request.use((req) => {
