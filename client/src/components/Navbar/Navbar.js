@@ -55,25 +55,30 @@ const Navbar = () => {
 
   useEffect(() => {
     const profile = JSON.parse(localStorage.getItem("profile"));
-    if (profile?.token) {
-      try {
-        const token = profile.token;
 
-        // Decode the token only if it's valid
-        const decodedToken = jwtDecode(token);
+    if (profile) {
+      const token = profile?.token;
 
-        // Check if token is expired
-        if (decodedToken.exp * 1000 < Date.now()) {
+      if (token) {
+        try {
+          const decodedToken = jwtDecode(token);
+          if (decodedToken.exp * 1000 < Date.now()) {
+            console.log("Token expired. Logging out.");
+            logout();
+          } else {
+            console.log("Token is valid.");
+            setUser(profile);
+          }
+        } catch (error) {
+          console.error("Error decoding token in Navbar:", error.message);
           logout();
-        } else {
-          setUser(profile);
         }
-      } catch (error) {
-        console.error("Error decoding token in Navbar :", error.message);
-        logout(); // Logout user if the token is invalid
+      } else {
+        console.log("No token found in the profile object.");
+        logout();
       }
     } else {
-      console.log("No token found in localStorage.");
+      console.log("No profile found in localStorage.");
     }
   }, [location]);
 

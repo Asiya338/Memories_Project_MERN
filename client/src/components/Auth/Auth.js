@@ -8,6 +8,7 @@ import {
   Paper,
 } from "@material-ui/core";
 import useStyles from "./styles.js";
+import jwtDecode from "jwt-decode";
 import Input from "./Input.js";
 import { signin, signup } from "../../actions/auth.js";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
@@ -32,9 +33,8 @@ const Auth = () => {
   const [formData, setFormData] = useState(initialState);
 
   const googleSuccess = async (res) => {
-    const result = res?.credential;
-    const token = res?.clientId;
-
+    const result = jwtDecode(res?.credential);
+    const token = res?.credential;
     try {
       dispatch({ type: "AUTH", data: { result, token } });
       history.push("/");
@@ -140,7 +140,7 @@ const Auth = () => {
             <GoogleLogin
               onSuccess={googleSuccess}
               onError={googleFailure}
-              fullWidth
+              useOneTap
             />
           </GoogleOAuthProvider>
 
