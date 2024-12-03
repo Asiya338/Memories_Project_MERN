@@ -2,7 +2,7 @@
 
 The **Memories Project** is a full-stack **MERN (MongoDB, Express, React, Node.js)** application that allows users to create, update, delete, and interact with posts. This project is fully responsive and offers a variety of features to create and share memories.
 
-> [Do Post in my project](https://memories-qv82.onrender.com)
+> [Do Create a Post in My Project](https://memories-qv82.onrender.com)
 
 # [![Memories](https://i.postimg.cc/XvtN98WX/Screenshot-3.png)](https://postimg.cc/8FBVSLjV)
 
@@ -92,12 +92,11 @@ node --openssl-legacy-provider node_modules/react-scripts/scripts/start.js
 - **bcryptjs**: For hashing passwords securely.
 - **dotenv**: For managing environment variables.
 - **Cors**: Middleware to enable cross-origin resource sharing.
-- 
----
+- ***
 
-**_Backend Setup_**
+  **_Backend Setup_**
 
----
+  ***
 
 ### **_Navigate into the server directory:_**
 
