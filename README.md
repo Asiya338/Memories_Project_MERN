@@ -11,7 +11,9 @@ The **Memories Project** is a full-stack **MERN (MongoDB, Express, React, Node.j
 - **User Authentication**: Users can create an account using custom credentials or Google OAuth.
 - **Post Interactions**: Users can create, update, delete, search, like, comment on, and share posts.
 - **Recommendation System**: Users can receive post recommendations.
-- **Responsive Design**: The app is fully responsive, making it accessible on both mobile and desktop devices.
+- **Search Posts**: The app allows searching for posts based on keywords.
+- **Sort Posts**: The app allows sorting for posts based on latest , oldest , posted by user , liked by user , alphabetical order and reverse alphabetical order
+- **Like and Comment**: Users can like and comment on posts to engage with others.
 
 ---
 
@@ -28,21 +30,6 @@ The **Memories Project** is a full-stack **MERN (MongoDB, Express, React, Node.j
 - **JWT Decode**: For decoding JSON Web Tokens (JWT) and managing user authentication.
 - **Moment.js**: To format dates and handle time-related functionalities.
 - **React Google Login**: Allows users to authenticate via Google OAuth.
-
----
-
-## **Frontend Dependencies**
-
-| **Dependency**       | **Purpose**                                                                   |
-| -------------------- | ----------------------------------------------------------------------------- |
-| `@material-ui/core`  | Provides UI components such as buttons, grids, and form elements.             |
-| `react-router-dom`   | Handles navigation between different pages.                                   |
-| `axios`              | Makes API requests to the server.                                             |
-| `redux`              | Manages the application's state, with `redux-thunk` for asynchronous actions. |
-| `jwt-decode`         | Decodes JWT tokens for user sessions.                                         |
-| `react-google-login` | Enables Google OAuth login.                                                   |
-| `moment`             | Formats and manages dates and times.                                          |
-| `react-redux`        | Connects the Redux state with React components.                               |
 
 ---
 
@@ -105,20 +92,7 @@ node --openssl-legacy-provider node_modules/react-scripts/scripts/start.js
 - **bcryptjs**: For hashing passwords securely.
 - **dotenv**: For managing environment variables.
 - **Cors**: Middleware to enable cross-origin resource sharing.
-
----
-
-## **Backend Dependencies**
-
-| **Dependency** | **Purpose**                                                         |
-| -------------- | ------------------------------------------------------------------- |
-| `express`      | Web framework for building APIs.                                    |
-| `mongoose`     | ODM library for MongoDB.                                            |
-| `bcryptjs`     | Securely hashes and validates passwords.                            |
-| `jsonwebtoken` | Generates and validates JWT tokens for user authentication.         |
-| `cors`         | Enables cross-origin resource sharing between frontend and backend. |
-| `dotenv`       | Manages environment variables.                                      |
-
+- 
 ---
 
 **_Backend Setup_**
