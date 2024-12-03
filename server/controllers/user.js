@@ -5,6 +5,8 @@ import User from "../models/user.js";
 
 dotenv.config();
 
+//backend logic to signin user => to verify already existing users credentials
+
 export const signin = async (req, res) => {
   const JWT_SECRET = process.env.JWT_SECRET_KEY;
   const { email, password } = req.body;
@@ -19,13 +21,15 @@ export const signin = async (req, res) => {
       existingUser.password
     );
     if (!isCorrectPassword) {
-      return res.status(400).json({ message: "invalid credentials" });
+      return res
+        .status(400)
+        .json({ message: "invalid credentials (password)" });
     }
-
+    //generate JWT token
     const token = jwt.sign(
       { email: existingUser.email, id: existingUser._id },
       JWT_SECRET,
-      { expiresIn: "2h" }
+      { expiresIn: "2h" } // token expries after 2 hours
     );
 
     res.status(200).json({ result: existingUser, token });
@@ -49,6 +53,7 @@ export const signup = async (req, res) => {
     }
     const hashedPassword = await bcrypt.hash(password, 12);
     const result = await User.create({
+      //save user account
       email,
       password: hashedPassword,
       name: `${firstName} ${lastName}`,
@@ -65,3 +70,9 @@ export const signup = async (req, res) => {
     res.status(500).json({ message: "something went wrong here in signup" });
   }
 };
+
+//bcrypt is a cyrptographic hashing algorithm to hash the cedentials like passwords
+//bcryptjs is a js library that uses bcrypt standard to encrypt password and it is stored as hashed only in db
+//jwt.sign is used to generate a jwt token => jwt.sign(payload , secret , options)
+//bcrypt.hash(password, salt round) => salt rounds =12 is increase a  stronger complexity in computational hasihng
+//salt is a random generated string is combined with plain text then passed with no.of salt rounds to hashth creetials

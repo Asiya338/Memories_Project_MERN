@@ -2,6 +2,17 @@
 
 The **Memories Project** backend is built using Node.js and Express. It handles the server-side logic for managing posts, user authentication, and connecting with the MongoDB database. The backend exposes API endpoints to interact with the frontend, including user registration, login, and CRUD operations on posts.
 
+> **Key Features**
+
+**User Authentication:** Uses JWT for handling user login and registration securely via custom authentication or trusted third party authentication like Google oauth2
+
+**Post Management:** Users can create, read, update, like, comment and delete posts with fully integrated authentication
+
+**MongoDB Integration:** All data is stored in MongoDB, with schema validation using Mongoose(Object Data Modelling tool to connect to MongoDB and backend node.js application)
+
+**CORS Support:** Cross-origin requests are allowed from the frontend , bypass cross-origin requests
+as frontend is localhost:3000... and backend is localhost:4000
+
 ## Tech Stack
 
 - **Node.js**: A JavaScript runtime built on Chrome's V8 JavaScript engine.
@@ -21,7 +32,6 @@ The **Memories Project** backend is built using Node.js and Express. It handles 
 - `bcryptjs`: To hash user passwords securely before storing them.
 - `cors`: To handle cross-origin requests between the frontend and backend.
 - `dotenv`: To load environment variables for sensitive data like API keys.
-- `body-parser`: Middleware to parse incoming request bodies, making it easy to work with POST requests.
 - `nodemon`: Development tool that automatically restarts the server when file changes are detected.
 
 ## Getting Started
@@ -61,18 +71,12 @@ npm start
 
 > > > This will start the backend server on http://localhost:5000.
 
-**Key Features**
-
-User Authentication: Uses JWT for handling user login and registration securely.
-Post Management: Users can create, read, update, and delete posts.
-MongoDB Integration: All data is stored in MongoDB, with schema validation using Mongoose.
-CORS Support: Cross-origin requests are allowed from the frontend.
-
 ---
 
 ### Folder Structure
 
 ```bash
+
 /server
 
 ├── /models # Mongoose models for users and posts

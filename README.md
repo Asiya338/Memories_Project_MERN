@@ -2,6 +2,8 @@
 
 The **Memories Project** is a full-stack **MERN (MongoDB, Express, React, Node.js)** application that allows users to create, update, delete, and interact with posts. This project is fully responsive and offers a variety of features to create and share memories.
 
+> [Do Post in my project](https://memories-qv82.onrender.com)
+
 # [![Memories](https://i.postimg.cc/XvtN98WX/Screenshot-3.png)](https://postimg.cc/8FBVSLjV)
 
 ## **Features**
@@ -74,19 +76,6 @@ node --openssl-legacy-provider node_modules/react-scripts/scripts/start.js
 
 > This will start the frontend development server on **`http://localhost:3000`**.  
 > The app will be proxied to the backend running on **`http://localhost:5000`**.
-
----
-
-## **Key Features**
-
-- **Authentication**: Users can sign up or log in via custom credentials or Google OAuth.
-- **Create Post**: Users can create a new post to share their memories.
-- **Update Post**: Users can edit their previously created posts.
-- **Delete Post**: Users can delete posts they no longer need.
-- **Search Posts**: The app allows searching for posts based on keywords.
-- **Sort Posts**: The app allows sorting for posts based on latest , oldest , posted by user , liked by user , alphabetical order and reverse alphabetical order
-- **Like and Comment**: Users can like and comment on posts to engage with others.
-- **Responsive Design**: The app adjusts its layout for both mobile and desktop views.
 
 ---
 

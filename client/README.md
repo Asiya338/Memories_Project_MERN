@@ -4,10 +4,21 @@ The **Memories Project** is a full-stack MERN (MongoDB, Express, React, Node.js)
 
 ## Features
 
-- **User Authentication**: Users can create an account using custom credentials or Google OAuth.
-- **Post Interactions**: Users can create, update, delete, search, like, comment on, and share posts.
-- **Recommendation System**: Users can receive post recommendations.
-- **Responsive Design**: The app is fully responsive, making it accessible on both mobile and desktop devices.
+**Authentication:** Users can sign up or log in via custom credentials or Google OAuth.
+
+**Create Post:** Users can create a new post to share their memories.
+
+**Update Post:** Users can edit their previously created posts.
+
+**Delete Post:** Users can delete posts they no longer need.
+
+**Search Posts:** The app allows searching for posts based on keywords.
+
+**Like and Comment:** Users can like and comment on posts to engage with other users.
+
+**Responsive Design:** The app adjusts its layout for mobile and desktop views.
+
+---
 
 ## Tech Stack
 
@@ -64,18 +75,6 @@ node --openssl-legacy-provider node_modules/react-scripts/scripts/start.js
 
 ---
 
-**_Key Features_**
-
-Authentication: Users can sign up or log in via custom credentials or Google OAuth.
-Create Post: Users can create a new post to share their memories.
-Update Post: Users can edit their previously created posts.
-Delete Post: Users can delete posts they no longer need.
-Search Posts: The app allows searching for posts based on keywords.
-Like and Comment: Users can like and comment on posts to engage with other users.
-Responsive Design: The app adjusts its layout for mobile and desktop views.
-
----
-
 ### Folder Structure
 
 ```bash
@@ -85,15 +84,15 @@ Responsive Design: The app adjusts its layout for mobile and desktop views.
 
 └── /src
 
-├── /components # React components for various parts of the UI
+  ├── /components # React components for various parts of the UI
 
-├── /reducers # Redux reducers
+  ├── /reducers # Redux reducers
 
-├── /actions # Redux actions
+  ├── /actions # Redux actions
 
-├── App.js # Main React component
+  ├── App.js # Main React component
 
-├── index.js # Entry point for the app
+  ├── index.js # Entry point for the app
 
-└── ...
+  └── ...
 ```

@@ -13,7 +13,9 @@ const Paginate = ({ page, sortBy }) => {
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
   const userId =
-    sortBy === "liked" || sortBy === "my-posts" ? user?.result?._id : null;
+    sortBy === "liked" || sortBy === "my-posts"
+      ? user?.result?._id || user?.result?.googleId
+      : null;
 
   useEffect(() => {
     if (page) {

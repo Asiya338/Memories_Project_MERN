@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken"; // for session management , user authentication
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -42,3 +42,9 @@ const auth = async (req, res, next) => {
 };
 
 export default auth;
+
+// jwt secret key is usd in custom token is to be sent on server to sign the token
+//ensures integrity , and authencity of user
+//same secret key is used to signin , signup the user
+//jwt.verify = > verify token and decode the token
+//jwt.decode = > only decode the token as google oauth as it is trusted token

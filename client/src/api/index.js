@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://memories-mern-backend-eghl.onrender.com",
+  /*  baseURL: "https://memories-mern-backend-eghl.onrender.com", */
+  baseURL: "http://localhost:5000",
 });
 
 API.interceptors.request.use((req) => {
@@ -9,7 +10,7 @@ API.interceptors.request.use((req) => {
     req.headers.authorization = `Bearer ${
       JSON.parse(localStorage.getItem("profile")).token
     }`;
-  }
+  } //bearer token to allow access to get resources simly by presenting it (Bearer <JWT>)
   return req;
 });
 export const fetchPost = (id) => API.get(`/posts/${id}`);

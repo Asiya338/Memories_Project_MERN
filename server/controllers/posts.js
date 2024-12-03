@@ -4,7 +4,6 @@ import PostMessage from "../models/postMessage.js";
 // To fetch posts
 export const getPosts = async (req, res) => {
   const { page, sortBy, userId } = req.query;
-  //console.log("userid : ", userId);
   try {
     const LIMIT = 8;
     let sortOption = {};
@@ -65,17 +64,13 @@ export const getPost = async (req, res) => {
 // To fetch posts by search query
 export const getPostsBySearch = async (req, res) => {
   const { searchQuery, tags } = req.query;
+
   try {
-    // Create a case-insensitive regex for the title
+    // Create a case-insensitive regex for the title : ignore
     const title = new RegExp(searchQuery, "i");
 
-    // Create case-insensitive regex for tags if tags are provided
-    const tagRegex = tags
-      ? tags.split(",").map((tag) => new RegExp(tag, "i"))
-      : [];
-
     const posts = await PostMessage.find({
-      $or: [{ title }, { tags: { $in: tagRegex.length ? tagRegex : [] } }],
+      $or: [{ title }, { tags: { $in: tags ? tags.split(",") : [] } }],
     });
     if (posts.length === 0) {
       return res
@@ -102,7 +97,6 @@ export const createPost = async (req, res) => {
     res.status(201).json(newPost);
   } catch (error) {
     res.status(409).json({ message: error.message });
-    console.log("Error:", error);
   }
 };
 

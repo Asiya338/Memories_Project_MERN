@@ -26,7 +26,7 @@ const Comments = ({ post, onCommentAdded }) => {
   };
 
   const handleShare = () => {
-    const postUrl = `${window.location.origin}/posts/${post._id}`;
+    const postUrl = `${window.location.origin}`;
 
     const postMessage = post.message;
     if (navigator.share) {
