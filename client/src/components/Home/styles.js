@@ -4,13 +4,15 @@ const useStyles = makeStyles((theme) => ({
   appBarSearch: {
     borderRadius: 4,
     marginBottom: "1rem",
-    marginTop: "1rem",
     display: "flex",
     padding: "16px",
     background: "#F7F7F8",
     "&:hover": {
       backgroundColor: "#ffff",
       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)",
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "2rem",
     },
   },
   sortStyle: {
@@ -26,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
   pagination: {
     borderRadius: 4,
     marginTop: "1rem",
+    marginBottom: "1rem",
     padding: "16px",
     background: "#F7F7F8",
     "&:hover": {
@@ -44,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
   textCont: {
     borderRadius: "8px",
-    padding: "50px", // Add padding to give space around the content
+    padding: "56px", // Add padding to give space around the content
     marginTop: "10px", // Corrected to have a single top margin
     backgroundImage:
       "url(https://plus.unsplash.com/premium_photo-1698381563570-428ea5c8e011?w=800&h=400&auto=format&fit=clip&q=80)",

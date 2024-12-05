@@ -40,14 +40,12 @@ const Auth = () => {
       history.push("/");
       alert("Login successful");
     } catch (error) {
-      console.error(error);
       alert("Google login failed. Please try again.");
     }
   };
 
   const googleFailure = () => {
-    console.error("Google login failed");
-    alert("Login failed");
+    alert("Google login failed. Please try again.");
   };
 
   const handleChange = (e) => {
@@ -62,7 +60,7 @@ const Auth = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //to prevent deafult behavior of browser
     if (isSignup) {
       dispatch(signup(formData, history));
     } else {
@@ -115,6 +113,21 @@ const Auth = () => {
                 handleShowPassword={handleShowPassword}
               />
             </Grid>
+            <Grid container justifycontent="center">
+              {!isSignup && (
+                <Typography variant="body2">
+                  &nbsp; Forgot password?
+                  <Button
+                    onClick={() => history.push("/forgot-password")}
+                    color="primary"
+                    varaint="contained"
+                  >
+                    Reset Password
+                  </Button>
+                </Typography>
+              )}
+            </Grid>
+
             {isSignup && (
               <Grid item xs={12}>
                 <Input
@@ -144,7 +157,7 @@ const Auth = () => {
             />
           </GoogleOAuthProvider>
 
-          <Grid container justifycontent="center">
+          <Grid container>
             <Grid item>
               {isSignup ? (
                 <>

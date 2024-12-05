@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
 
   paper: {
     background: "#F7F7F8",
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     borderRadius: "4px",
     transition: "background-color 0.3s ease, box-shadow 0.3s ease",
     "@media (max-width: 400px)": {
@@ -29,11 +29,11 @@ export default makeStyles((theme) => ({
   },
   fileInput: {
     width: "100%",
-    margin: "10px  0 ",
+    margin: "5px  0 ",
   },
   buttonSubmit: {
-    marginBottom: 10,
-    margin: 10,
+    marginBottom: 6,
+    margin: 6,
   },
 
   textField: {

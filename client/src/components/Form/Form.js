@@ -89,7 +89,7 @@ const Form = ({ currentId, setCurrentId }) => {
           label="Memory"
           fullWidth
           multiline
-          rows={6} // Minimum rows
+          rows={6}
           className={classes.textField}
           value={postData.message}
           onChange={(e) => {
@@ -129,7 +129,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="contained"
           fullWidth
         >
-          <b>{currentId ? "RE-POST" : "POST"} </b>
+          <b>{currentId ? "Re-post" : "Post"} </b>
         </Button>
         <Button
           className={classes.buttonSubmit}

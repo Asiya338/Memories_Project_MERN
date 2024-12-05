@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
       height: "200px",
       top: -40,
-      left: 0,
+      left: -10,
       flexDirection: "column",
     },
   },
@@ -45,13 +45,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "3rem",
     color: theme.palette.secondary.main,
     [theme.breakpoints.down("sm")]: {
-      fontSize: "20px",
+      fontSize: "15px",
     },
   },
   iconStyles: {
     fontSize: "3rem",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "20px",
+      fontSize: "15px",
     },
   },
   avatar: {
@@ -62,8 +62,8 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       margin: theme.spacing(0),
-      width: theme.spacing(3),
-      height: theme.spacing(3),
+      width: theme.spacing(2),
+      height: theme.spacing(2),
       fontSize: "10px",
     },
   },

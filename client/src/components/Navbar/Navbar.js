@@ -63,18 +63,15 @@ const Navbar = () => {
         try {
           const decodedToken = jwtDecode(token);
           if (decodedToken.exp * 1000 < Date.now()) {
-            console.log("Token expired. Logging out.");
             logout();
           } else {
-            console.log("Token is valid.");
             setUser(profile);
           }
         } catch (error) {
-          console.error("Error decoding token in Navbar:", error.message);
+          console.error("Error decoding token in Navbar:", error);
           logout();
         }
       } else {
-        console.log("No token found in the profile object.");
         logout();
       }
     } else {
@@ -90,7 +87,6 @@ const Navbar = () => {
   });
 
   // to store in localstorage
-
   const toggleTheme = () => {
     setIsDarkMode((prev) => {
       const newTheme = !prev;

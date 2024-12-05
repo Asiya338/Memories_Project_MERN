@@ -28,7 +28,9 @@ export default makeStyles((theme) => ({
   },
   form: {
     width: "100%", // Fix IE 11 issue.
+
     marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -38,5 +40,11 @@ export default makeStyles((theme) => ({
   },
   space: {
     margin: "10px",
+  },
+  padd: {
+    marginBottom: theme.spacing(6),
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: theme.spacing(2),
+    },
   },
 }));

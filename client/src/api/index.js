@@ -10,9 +10,10 @@ API.interceptors.request.use((req) => {
     req.headers.authorization = `Bearer ${
       JSON.parse(localStorage.getItem("profile")).token
     }`;
-  } //bearer token to allow access to get resources simly by presenting it (Bearer <JWT>)
+  } //bearer token to allow access to get resources simply by presenting it (Bearer <JWT>)
   return req;
 });
+
 export const fetchPost = (id) => API.get(`/posts/${id}`);
 
 export const fetchPosts = (page, sortBy, userId) =>
@@ -42,3 +43,9 @@ export const comment = (value, id) =>
 export const signIn = (formData) => API.post("/user/signin", formData);
 
 export const signUp = (formData) => API.post("/user/signup", formData);
+
+export const reqResetPass = (email) =>
+  API.post("/user/reset-password-req", { email });
+
+export const resetPass = (password, token) =>
+  API.post(`/user/reset-password`, { password, token });

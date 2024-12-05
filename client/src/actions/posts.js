@@ -11,6 +11,7 @@ import {
   COMMENT,
 } from "../constants/actionTypes";
 
+// Action creator using redux-thunk
 export const getPost = (id) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
@@ -18,10 +19,10 @@ export const getPost = (id) => async (dispatch) => {
     dispatch({ type: FETCH_POST, payload: data });
     dispatch({ type: END_LOADING });
   } catch (error) {
-    console.log("Error in actions: Fetch", error.message); // Log the error if the API call fails
+    console.log("Error in actions: getPost", error);
   }
 };
-// Action creator using redux-thunk
+
 export const getPosts = (page, sortBy, userId) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
@@ -29,12 +30,11 @@ export const getPosts = (page, sortBy, userId) => async (dispatch) => {
     dispatch({ type: FETCH_ALL, payload: data });
     dispatch({ type: END_LOADING });
   } catch (error) {
-    console.log("Error in actions: Fetch", error.message); // Log the error if the API call fails
+    console.log("Error in actions: getPosts", error);
   }
 };
 
 //search => fetch posts by tags
-
 export const getPostsBySearch = (searchQuery) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
@@ -44,7 +44,7 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
     dispatch({ type: FETCH_QUERY, payload: data });
     dispatch({ type: END_LOADING });
   } catch (error) {
-    console.log("Error in actions: getPostsBySearch", error.message);
+    console.log("Error in actions: getPostsBySearch", error);
   }
 };
 
@@ -56,7 +56,7 @@ export const createPost = (post, history) => async (dispatch) => {
     history.push(`/posts/${data._id}`);
     dispatch({ type: CREATE, payload: data });
   } catch (error) {
-    console.log("Error in actions: create => ", error.message); // Log the error if the API call fails
+    console.log("Error in actions: createPost ", error);
   }
 };
 
@@ -66,7 +66,7 @@ export const updatePost = (id, postData) => async (dispatch) => {
     const { data } = await api.updatePost(id, postData);
     dispatch({ type: UPDATE, payload: data });
   } catch (error) {
-    console.log(error);
+    console.log("Error in actions : updatePost", error);
   }
 };
 
@@ -76,17 +76,17 @@ export const deletePost = (id) => async (dispatch) => {
     await api.deletePost(id);
     dispatch({ type: DELETE, payload: id });
   } catch (error) {
-    console.log(error);
+    console.log("Error in actions : deletePost", error);
   }
 };
 
-//like post > any post
+//like post > any post but only one time
 export const likePost = (id) => async (dispatch) => {
   try {
     const { data } = await api.likePost(id);
     dispatch({ type: UPDATE, payload: data });
   } catch (error) {
-    console.log(error);
+    console.log("Error in actions : likePost", error);
   }
 };
 
@@ -98,6 +98,6 @@ export const commentPost = (value, id) => async (dispatch) => {
     dispatch({ type: COMMENT, payload: data });
     return data.comments;
   } catch (error) {
-    console.log(error);
+    console.log("Error in actions : commentPost", error);
   }
 };

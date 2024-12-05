@@ -23,9 +23,8 @@ const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const [likes, setLikes] = useState(post?.likes || []);
   const user = JSON.parse(localStorage.getItem("profile"));
-  const userId = user?.result?._id || user?.result?.googleId;
+  const userId = user?.result?._id || user?.result?.sub;
   const hasLikedPost = likes.includes(userId);
-
   const handleLike = async () => {
     dispatch(likePost(post._id));
     if (hasLikedPost) {
@@ -78,13 +77,12 @@ const Post = ({ post, setCurrentId }) => {
           {moment(post.createdAt).fromNow()}
         </Typography>
       </div>
-      {(user?.result?.googleId === post.creator ||
+      {(user?.result?.sub === post.creator ||
         user?.result?._id === post.creator) && (
         <div className={classes.overlay2}>
           <Button
             style={{ color: "white" }}
             size="small"
-            //  varient="contained"
             onClick={() => setCurrentId(post._id)}
           >
             <MoreHorizIcon fontSize="large"> </MoreHorizIcon>
@@ -120,7 +118,7 @@ const Post = ({ post, setCurrentId }) => {
         >
           <Likes />
         </Button>
-        {(user?.result?.googleId === post.creator ||
+        {(user?.result?.sub === post.creator ||
           user?.result?._id === post.creator) && (
           <Button
             onClick={() => {

@@ -11,3 +11,6 @@ export const LOGOUT = "LOGOUT";
 
 export const START_LOADING = "START_LOADING";
 export const END_LOADING = "END_LOADING";
+
+export const REQ_RESET_PASSWORD = "REQ_RESET_PASSWORD";
+export const RESET_PASSWORD = "RESET_PASSWORD";

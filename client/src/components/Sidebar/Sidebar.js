@@ -12,8 +12,6 @@ const Sidebar = ({ onClose, toggleTheme, isDarkMode }) => {
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem("profile"));
   let data;
-
-  // Handle case where user is not logged in
   if (!user) {
     return null;
   }
@@ -21,7 +19,7 @@ const Sidebar = ({ onClose, toggleTheme, isDarkMode }) => {
   // Check if user.result is a token or an object
   if (user?.result && typeof user.result === "string") {
     try {
-      data = jwtDecode(user?.result); // Decode token only if it's a string
+      data = jwtDecode(user?.result);
     } catch (error) {
       console.error("Failed to decode JWT:", error);
       data = null;
@@ -60,7 +58,7 @@ const Sidebar = ({ onClose, toggleTheme, isDarkMode }) => {
       <Typography variant="h6" className={classes.userName}>
         Hi, {data?.name || data?.given_name || "User"}
         <br />
-        Welcome to Memories World
+        Welcome to Memories World !!!
       </Typography>
 
       <div className={classes.theme}>
@@ -74,11 +72,10 @@ const Sidebar = ({ onClose, toggleTheme, isDarkMode }) => {
         <Typography className={classes.userName} variant="h6">
           {data?.name || data?.given_name || "User"}
         </Typography>
-        {/* </div>
-      <div className={classes.theme}> */}
+
         <EmailIcon className={classes.settings} />
         <Typography className={classes.userName} variant="h6">
-          {data?.email || "No Email Available"}
+          {data?.email || "email@gmail.com"}
         </Typography>
       </div>
 
@@ -93,7 +90,13 @@ const Sidebar = ({ onClose, toggleTheme, isDarkMode }) => {
           variant="contained"
           color="secondary"
           onClick={toggleTheme}
-          startIcon={isDarkMode ? <Brightness4Icon /> : <Brightness7Icon />}
+          startIcon={
+            isDarkMode ? (
+              <Brightness4Icon className={classes.iconStyles} />
+            ) : (
+              <Brightness7Icon className={classes.iconStyles} />
+            )
+          }
         >
           {isDarkMode ? "light-mode" : "dark-mode"}
         </Button>

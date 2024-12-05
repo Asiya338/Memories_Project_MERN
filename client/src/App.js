@@ -6,7 +6,8 @@ import Home from "./components/Home/Home.js";
 import PostDetails from "./components/PostDetails/PostDetails.jsx";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Auth from "./components/Auth/Auth.js";
-
+import ResetPass from "./components/Auth/ResetPass.js";
+import ForgotPass from "./components/Auth/ForgotPass";
 const App = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
   return (
@@ -22,13 +23,15 @@ const App = () => {
             path="/auth"
             exact
             component={() =>
-              !user?.result?._id || !user?.result?.googleId ? (
+              !user?.result?._id || !user?.result?.sub ? (
                 <Auth />
               ) : (
                 <Redirect to="/posts" />
               )
             }
           ></Route>
+          <Route path="/forgot-password" exact component={ForgotPass} />
+          <Route path="/reset-password/:token" exact component={ResetPass} />
         </Switch>
 
         <Footer />

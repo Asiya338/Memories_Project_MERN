@@ -9,12 +9,12 @@ import { Typography } from "@material-ui/core";
 const Paginate = ({ page, sortBy }) => {
   const classes = useStyles();
   const history = useHistory();
-  const { numberOfPages } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
+  const { numberOfPages } = useSelector((state) => state.posts);
   const user = JSON.parse(localStorage.getItem("profile"));
   const userId =
     sortBy === "liked" || sortBy === "my-posts"
-      ? user?.result?._id || user?.result?.googleId
+      ? user?.result?._id || user?.result?.sub
       : null;
 
   useEffect(() => {
